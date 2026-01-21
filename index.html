@@ -1,174 +1,973 @@
-<!-- Features Comparison Section -->
-    <section style="padding: 100px 0; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); border-top: 1px solid #eee;">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DCA LONG Scanner Dashboard - Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox. Miễn phí 100 người đầu tiên!">
+    <meta name="keywords" content="DCA, trading, Elirox, forex, crypto, dashboard, TradingView">
+    
+    <meta property="og:title" content="DCA LONG Scanner Dashboard - Công cụ Cho Trader Elirox">
+    <meta property="og:description" content="Phân tích thị trường tự động, tiết kiệm 80% thời gian, tăng win rate 15-20%">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://tool.eliroxbot.com">
+    
+    <title>DCA LONG Scanner Dashboard - Công cụ Cho Trader Elirox</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .step-time {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .dashboard-preview {
+            background: white;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .preview-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .preview-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .preview-text p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .preview-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .preview-features li {
+            padding: 10px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .preview-features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .comparison-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 50px;
+        }
+
+        .comparison-table thead tr {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        .comparison-table td {
+            padding: 18px 20px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f5f7ff;
+        }
+
+        .benefits {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .benefit-item .icon {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .pricing {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .price-tag {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: 800;
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-pricing:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .registration {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .registration-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .registration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .reg-step {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .reg-step:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .reg-step h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .faq-question:hover {
+            background: #f0f4ff;
+            border-bottom-color: #667eea;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-answer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #999;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .steps-container { grid-template-columns: 1fr; }
+            .preview-grid { grid-template-columns: 1fr; gap: 30px; }
+            .pricing-card.featured { transform: scale(1); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>DCA SCANNER</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#how-it-works">Cách Dùng</a></li>
+                    <li><a href="#comparison">So Sánh</a></li>
+                    <li><a href="#benefits">Lợi Ích</a></li>
+                    <li><a href="#testimonials">Đánh Giá</a></li>
+                    <li><a href="#pricing">Giá</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://reg.eliroxbot.com" target="_blank" class="btn-nav">Đăng Ký Ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DCA LONG Scanner Dashboard</h1>
+                <p>Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox</p>
+                <a href="https://reg.eliroxbot.com" target="_blank" class="cta-button">🎁 Miễn Phí Cho 100 Người Đầu Tiên!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-title">
-                <h2>🔍 So Sánh Tính Năng: DCA Scanner vs Tools Khác</h2>
-                <p>Tại sao DCA Scanner là lựa chọn tốt nhất cho trader Elirox?</p>
+                <h2>🚀 Siêu Đơn Giản! Chỉ 3 Bước</h2>
+                <p>Setup trong 3 phút, sử dụng cả đời</p>
             </div>
 
-            <div style="max-width: 1100px; margin: 50px auto; overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
-                    <thead>
-                        <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                            <th style="padding: 20px; text-align: left; font-weight: 700;">Tính Năng</th>
-                            <th style="padding: 20px; text-align: center; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.2);">TradingView Built-in</th>
-                            <th style="padding: 20px; text-align: center; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.2);">Paid Tools (100-500$)</th>
-                            <th style="padding: 20px; text-align: center; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.2); background: rgba(0, 200, 100, 0.2);">
-                                <i class="fas fa-star" style="color: #ffd700;"></i> DCA Scanner
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Feature 1: Multiframe Analysis -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">📊 Phân tích đa khung thời gian</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05);">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                        </tr>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fas fa-plus-circle"></i></div>
+                    <h3>Thêm Vào TradingView</h3>
+                    <p>Copy code Pine Script và paste vào TradingView Editor. Click "Add to Chart". Xong!</p>
+                    <span class="step-time">⏱️ 2 phút</span>
+                </div>
 
-                        <!-- Feature 2: DCA Calculation -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">🧮 Tính toán DCA tự động</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05); color: #2e7d32; font-weight: 600;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span> <br>
-                                <small>Tối ưu cho Elirox</small>
-                            </td>
-                        </tr>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>Thiết Lập Theo Sở Thích</h3>
+                    <p>Chọn vị trí dashboard, theme (Light/Dark), sections muốn hiển thị. Tùy chỉnh 100%!</p>
+                    <span class="step-time">⏱️ 1 phút</span>
+                </div>
 
-                        <!-- Feature 3: Alert System -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">🔔 Alert System</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05); color: #2e7d32; font-weight: 600;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span> <br>
-                                <small>Real-time</small>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 4: No Coding Required -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">👶 Không cần lập trình</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05);">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 5: Multiple Assets -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">🎯 Phân tích 5-10 assets cùng lúc</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05); color: #2e7d32; font-weight: 600;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span> <br>
-                                <small>Unlimited</small>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 6: Light/Dark Theme -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">🌙 Light/Dark Theme</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05);">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 7: 24/7 Support -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">👨‍💼 Hỗ trợ 24/7</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05);">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 8: Free Updates -->
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 20px; font-weight: 600; color: #1a1a2e;">📦 Cập nhật miễn phí mãi mãi</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee;">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #d32f2f; color: white; border-radius: 50%; line-height: 24px;">✗</span>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; color: #ffa726; font-weight: 600;">
-                                <small>Phí thêm</small>
-                            </td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.05);">
-                                <span style="display: inline-block; width: 24px; height: 24px; background: #2e7d32; color: white; border-radius: 50%; line-height: 24px; font-weight: 800;">✓</span>
-                            </td>
-                        </tr>
-
-                        <!-- Feature 9: Price -->
-                        <tr>
-                            <td style="padding: 20px; font-weight: 700; color: #1a1a2e; font-size: 1.1rem;">💰 Giá</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; color: #2e7d32; font-weight: 600;">Miễn phí</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; color: #d32f2f; font-weight: 600;">$100 - $500/năm</td>
-                            <td style="padding: 20px; text-align: center; border-left: 1px solid #eee; background: rgba(0, 200, 100, 0.1); color: #2e7d32; font-weight: 700; font-size: 1.1rem;">
-                                100% Miễn Phí 🎁
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div style="max-width: 800px; margin: 60px auto; text-align: center;">
-                <h3 style="font-size: 1.8rem; font-weight: 800; color: #1a1a2e; margin-bottom: 30px;">🏆 Tại Sao Chọn DCA Scanner?</h3>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 4px solid #667eea;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">💎</div>
-                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Tất Cả Tính Năng</h4>
-                        <p style="color: #666; font-size: 0.9rem;">Không cần chọn gói, có sẵn tất cả</p>
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 4px solid #667eea;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">🚀</div>
-                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Setup Nhanh</h4>
-                        <p style="color: #666; font-size: 0.9rem;">Chỉ 2 phút copy-paste, không cần coding</p>
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 4px solid #667eea;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">👥</div>
-                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Cộng Đồng Vui</h4>
-                        <p style="color: #666; font-size: 0.9rem;">500+ trader sử dụng, support Telegram</p>
-                    </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Sử Dụng Mỗi Ngày</h3>
+                    <p>Mở chart → Nhìn Score → Quyết định: 🟢 Entry / 🟡 Wait / 🔴 Skip. Vậy thôi!</p>
+                    <span class="step-time">⏱️ 30 giây/asset</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-preview" id="dashboard-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>👀 Xem Dashboard Trong Hành Động</h2>
+                <p>Interface trực quan, dữ liệu rõ ràng, quyết định nhanh</p>
+            </div>
+
+            <div class="preview-grid">
+                <div class="preview-image">
+                    <img src="images/dashboard-detailed.png" alt="DCA Scanner Dashboard">
+                </div>
+                <div class="preview-text">
+                    <h3>Dashboard Chi Tiết</h3>
+                    <p>Phân tích toàn diện trong một cái nhìn. Tất cả thông tin quan trọng được trình bày rõ ràng, dễ hiểu.</p>
+                    <ul class="preview-features">
+                        <li>Score phân tích đa chiều (0-100)</li>
+                        <li>Thời điểm entry tối ưu</li>
+                        <li>Tính toán DCA tự động</li>
+                        <li>Alert khi setup phù hợp</li>
+                        <li>Lịch sử trading chi tiết</li>
+                    </ul>
+                    <p style="color: #667eea; font-weight: 600; margin-top: 30px;">Cập nhật real-time 24/7 • Mobile-friendly • Tùy chỉnh hoàn toàn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section: Before & After -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>📊 Trước & Sau Khi Dùng Dashboard</h2>
+                <p>So sánh rõ sự khác biệt khi sử dụng DCA Scanner vs cách thủ công</p>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto; overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Tiêu Chí</th>
+                            <th>❌ Trước (Manual/Khác)</th>
+                            <th>✅ Sau (DCA Scanner)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Thời gian phân tích</td>
+                            <td>90 phút/ngày</td>
+                            <td>10 phút/ngày</td>
+                        </tr>
+                        <tr>
+                            <td>Số asset trade được</td>
+                            <td>1-2 assets</td>
+                            <td>5-10 assets</td>
+                        </tr>
+                        <tr>
+                            <td>Win rate</td>
+                            <td>~65%</td>
+                            <td>~78-85%</td>
+                        </tr>
+                        <tr>
+                            <td>Cảm xúc khi trade</td>
+                            <td>Stress, phân vân</td>
+                            <td>Tự tin, bình tĩnh</td>
+                        </tr>
+                        <tr>
+                            <td>Tính DCA params</td>
+                            <td>Thủ công, mất công</td>
+                            <td>Tự động, 1 click</td>
+                        </tr>
+                        <tr>
+                            <td>Nhất quán</td>
+                            <td>Thay đổi mỗi ngày</td>
+                            <td>100% consistent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison vs Other Tools -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>🔍 So Sánh Tính Năng: DCA Scanner vs Tools Khác</h2>
+                <p>Tại sao DCA Scanner là lựa chọn tốt nhất?</p>
+            </div>
+
+            <div style="max-width: 1100px; margin: 0 auto; overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Tính Năng</th>
+                            <th>TradingView Built-in</th>
+                            <th>Paid Tools</th>
+                            <th style="background: rgba(0, 200, 100, 0.2);">⭐ DCA Scanner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left;">📊 Phân tích đa khung thời gian</td>
+                            <td><span style="color: #d32f2f; font-weight: 700;">✗</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">🧮 Tính toán DCA tự động</td>
+                            <td><span style="color: #d32f2f; font-weight: 700;">✗</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓ Elirox</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">🔔 Alert System</td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">👶 Không cần lập trình</td>
+                            <td><span style="color: #d32f2f; font-weight: 700;">✗</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">🎯 Phân tích nhiều assets</td>
+                            <td><span style="color: #d32f2f; font-weight: 700;">✗</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓∞</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">👨‍💼 Hỗ trợ 24/7</td>
+                            <td><span style="color: #d32f2f; font-weight: 700;">✗</span></td>
+                            <td><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                            <td style="background: rgba(0, 200, 100, 0.05);"><span style="color: #2e7d32; font-weight: 700;">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 700;">💰 Giá</td>
+                            <td style="font-weight: 700;">Free</td>
+                            <td style="font-weight: 700; color: #d32f2f;">$100-500/năm</td>
+                            <td style="background: rgba(0, 200, 100, 0.1); font-weight: 700; color: #2e7d32;">🎁 Miễn Phí</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>💎 Lợi Ích Bạn Sẽ Nhận Được</h2>
+                <p>Sau khi sử dụng, bạn sẽ thay đổi hoàn toàn cách trade</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-hourglass-half"></i></div>
+                    <h4>Tiết Kiệm Thời Gian</h4>
+                    <p><strong>80%</strong> - Từ 90 phút → 10 phút/sáng = 40 giờ/tháng cho việc khác</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
