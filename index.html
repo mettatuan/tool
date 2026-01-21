@@ -179,12 +179,7 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        /* ====== HOW TO USE SECTION ====== */
-        .how-it-works {
-            padding: 100px 0;
-            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-        }
-
+        /* ====== SECTION TITLE ====== */
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -206,31 +201,18 @@
             margin: 0 auto;
         }
 
-        /* ====== STEPS TIMELINE ====== */
+        /* ====== HOW TO USE SECTION ====== */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
         .steps-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             position: relative;
             margin-bottom: 60px;
-        }
-
-        .steps-container::before {
-            content: '';
-            position: absolute;
-            top: 100px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-            z-index: 0;
-            display: none;
-        }
-
-        @media (min-width: 1024px) {
-            .steps-container::before {
-                display: block;
-            }
         }
 
         .step-card {
@@ -372,11 +354,62 @@
             font-size: 1.2rem;
         }
 
-        @media (max-width: 768px) {
-            .preview-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+        /* ====== COMPARISON TABLE ====== */
+        .comparison-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin-top: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table thead tr {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        .comparison-table th:nth-child(2),
+        .comparison-table th:nth-child(3) {
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 18px 20px;
+            border: 1px solid #eee;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f5f7ff;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .comparison-table td:nth-child(2) {
+            text-align: center;
+            color: #d32f2f;
+        }
+
+        .comparison-table td:nth-child(3) {
+            text-align: center;
+            color: #2e7d32;
+            font-weight: 600;
         }
 
         /* ====== BENEFITS SECTION ====== */
@@ -519,11 +552,6 @@
             transform: scale(1.05);
         }
 
-        .pricing-card:hover:not(.featured) {
-            border-color: #667eea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
         .price-tag {
             font-size: 3.5rem;
             font-weight: 800;
@@ -647,6 +675,16 @@
             min-height: 100px;
         }
 
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
+            border-radius: 8px;
+            color: white;
+        }
+
         /* ====== FAQ ====== */
         .faq {
             padding: 100px 0;
@@ -692,6 +730,27 @@
         .faq-answer p {
             color: #666;
             line-height: 1.7;
+        }
+
+        /* ====== FINAL CTA ====== */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .cta-stat {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
 
         /* ====== FOOTER ====== */
@@ -759,12 +818,26 @@
                 grid-template-columns: 1fr;
             }
 
+            .preview-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
             .pricing-card.featured {
                 transform: scale(1);
             }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
             }
         }
     </style>
@@ -780,6 +853,7 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="#how-it-works">Cách Dùng</a></li>
+                    <li><a href="#comparison">So Sánh</a></li>
                     <li><a href="#benefits">Lợi Ích</a></li>
                     <li><a href="#testimonials">Đánh Giá</a></li>
                     <li><a href="#pricing">Giá</a></li>
@@ -811,7 +885,6 @@
             </div>
 
             <div class="steps-container">
-                <!-- Step 1 -->
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-icon"><i class="fas fa-plus-circle"></i></div>
@@ -820,7 +893,6 @@
                     <span class="step-time">⏱️ 2 phút</span>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
@@ -829,7 +901,6 @@
                     <span class="step-time">⏱️ 1 phút</span>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-icon"><i class="fas fa-check-circle"></i></div>
@@ -867,6 +938,65 @@
 
                     <p style="color: #667eea; font-weight: 600; margin-top: 30px;">Cập nhật real-time 24/7 • Mobile-friendly • Tùy chỉnh hoàn toàn</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>📊 Trước & Sau Khi Dùng Dashboard</h2>
+                <p>So sánh rõ sự khác biệt khi sử dụng DCA Scanner vs các cách khác</p>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto; overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Tiêu Chí</th>
+                            <th>❌ Trước (Manual/Khác)</th>
+                            <th>✅ Sau (DCA Scanner)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Thời gian phân tích</td>
+                            <td>90 phút/ngày</td>
+                            <td>10 phút/ngày</td>
+                        </tr>
+                        <tr>
+                            <td>Số asset trade được</td>
+                            <td>1-2 assets</td>
+                            <td>5-10 assets</td>
+                        </tr>
+                        <tr>
+                            <td>Win rate</td>
+                            <td>~65%</td>
+                            <td>~78-85%</td>
+                        </tr>
+                        <tr>
+                            <td>Cảm xúc khi trade</td>
+                            <td>Stress, phân vân</td>
+                            <td>Tự tin, bình tĩnh</td>
+                        </tr>
+                        <tr>
+                            <td>Tính DCA params</td>
+                            <td>Thủ công, mất công</td>
+                            <td>Tự động, 1 click</td>
+                        </tr>
+                        <tr>
+                            <td>Nhất quán</td>
+                            <td>Thay đổi mỗi ngày</td>
+                            <td>100% consistent</td>
+                        </tr>
+                        <tr>
+                            <td>Giá</td>
+                            <td>Tùy tool: 0-100$</td>
+                            <td>100% Miễn Phí 🎁</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -930,317 +1060,4 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Trước đây tôi mất 2 tiếng mỗi sáng để check chart. Giờ chỉ cần 10 phút với dashboard này. Win rate của tôi tăng từ 65% lên 78%!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">NA</div>
-                        <div class="author-info">
-                            <h5>Nguyễn A.</h5>
-                            <p>Trader 2 năm kinh nghiệm</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Là người mới, tôi không biết khi nào nên vào lệnh. Dashboard cho tôi con số rõ ràng: 85+ thì vào. Đơn giản vậy thôi. Quá tuyệt!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TB</div>
-                        <div class="author-info">
-                            <h5>Trần B.</h5>
-                            <p>Trader 3 tháng</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Tool này giúp tôi tạo content cho kênh Telegram. Screenshot dashboard rất professional! Followers tăng từ 200 lên 800."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">LC</div>
-                        <div class="author-info">
-                            <h5>Lê C.</h5>
-                            <p>Affiliate Marketer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>💰 100% Miễn Phí - Trọn Đời!</h2>
-                <p>Không có chi phí ẩn, không có điều kiện bất ngờ</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="pricing-card featured">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Full Access</h3>
-                    <div class="price-tag">₫0</div>
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 20px;">Trọn đời</p>
-
-                    <ul class="pricing-features">
-                        <li>Tất cả tính năng</li>
-                        <li>Không giới hạn assets</li>
-                        <li>3 chế độ phân tích</li>
-                        <li>Auto DCA calculations</li>
-                        <li>Alert system</li>
-                        <li>Light/Dark themes</li>
-                        <li>Hỗ trợ miễn phí 24/7</li>
-                        <li>Updates miễn phí mãi mãi</li>
-                    </ul>
-
-                    <button class="btn-pricing">Nhận Ngay!</button>
-                    <p style="font-size: 0.85rem; color: #999; margin-top: 15px;">Điều kiện: Đăng ký Elirox qua link (miễn phí 100%)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Section -->
-    <section class="registration" id="register">
-        <div class="container">
-            <h2 class="registration-title">🎁 Bước 1: Đăng Ký Elirox</h2>
-            
-            <div class="registration-steps">
-                <div class="reg-step">
-                    <h3><i class="fas fa-user-plus"></i> Tạo Tài Khoản</h3>
-                    <p>Click nút bên dưới, điền thông tin email cơ bản, xác nhận qua email. Chỉ cần 1 phút!</p>
-                </div>
-
-<div class="reg-step">
-                    <h3><i class="fas fa-check"></i> Xác Nhận Email</h3>
-                    <p>Kiểm tra hộp thư (kể cả spam), click link xác nhận, bạn đã có tài khoản Elirox!</p>
-                </div>
-
-                <div class="reg-step">
-                    <h3><i class="fas fa-gift"></i> Nhận Code Dashboard</h3>
-                    <p>Quay lại trang này, điền email, nhận ngay code Pine Script + video hướng dẫn!</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin: 50px 0;">
-                <a href="#" class="cta-button" style="background: white; color: #667eea;">Đăng Ký Elirox Miễn Phí →</a>
-            </div>
-
-            <h2 class="registration-title">📋 Bước 2: Nhận Code Dashboard</h2>
-
-            <div style="max-width: 500px; margin: 40px auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
-                <form onsubmit="return false;">
-                    <div class="form-group">
-                        <label>Email đã đăng ký Elirox *</label>
-                        <input type="email" placeholder="example@email.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Họ Tên *</label>
-                        <input type="text" placeholder="Nguyễn Văn A" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Telegram Username (tuỳ chọn)</label>
-                        <input type="text" placeholder="@yourname" >
-                    </div>
-
-                    <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 10px;">
-                            <input type="checkbox" required>
-                            Tôi xác nhận đã đăng ký Elirox
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 10px;">
-                            <input type="checkbox" required>
-                            Tôi đồng ý với Điều Khoản Sử Dụng
-                        </label>
-                    </div>
-
-                    <button class="btn-pricing" style="background: white; color: #667eea; margin-top: 20px;">Nhận Code Ngay!</button>
-                </form>
-
-                <p style="font-size: 0.85rem; margin-top: 15px; opacity: 0.8;">✅ Thông tin của bạn được bảo mật 100%</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>❓ Câu Hỏi Thường Gặp</h2>
-            </div>
-
-            <div style="max-width: 700px; margin: 50px auto;">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Tôi cần phải biết lập trình không?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>KHÔNG!</strong> Chỉ cần copy-paste code vào TradingView. Thời gian: 2 phút. Hướng dẫn chi tiết có video.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Dashboard chỉ dùng cho Elirox?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dashboard phân tích thị trường, hoạt động trên TradingView. Bạn có thể dùng kết quả để trade trên <strong>BẤT KỲ nền tảng nào</strong> (Elirox, MT4, MT5, Binance...). Nhưng DCA parameters được tối ưu cho Elirox.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Tôi có thể dùng cho tài sản nào?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>TẤT CẢ</strong> tài sản có trên TradingView: Forex (XAUUSD, EURUSD...), Crypto (BTCUSD, ETHUSD...), Indices (SPX500, US30...), Commodities (OIL, SILVER...).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Win rate có tăng không?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dựa trên test data: Setup với Score 85+: Win rate ~85-90%, Score 70-84: ~75-80%. Tổng thể cải thiện: <strong>+15-20%</strong> so với manual analysis. <br><br><strong>LƯU Ý:</strong> Kết quả tùy thuộc vào kỷ luật và risk management.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Tôi đang dùng phone, có dùng được không?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>CÓ!</strong> Dashboard hiển thị trên: TradingView Desktop, Web Browser, Mobile App (iOS/Android). Responsive design, tự động điều chỉnh kích thước.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Có update mới không? Có phải trả phí không?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Updates <strong>HOÀN TOÀN MIỄN PHÍ!</strong> Khi có version mới, chúng tôi sẽ thông báo trong Telegram. Bạn chỉ cần copy code mới và paste lại.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section style="padding: 100px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Bạn Đã Sẵn Sàng Nâng Tầm Trading Game?</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.95;">Hơn 500+ trader đã sử dụng công cụ này. Đến lượt <strong>BẠN!</strong></p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin: 50px 0;">
-                <div>
-                    <div style="font-size: 2rem; font-weight: 800; margin-bottom: 10px;">⏰</div>
-                    <p style="font-size: 0.95rem;">Tiết kiếm 40 giờ/tháng</p>
-                </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: 800; margin-bottom: 10px;">📈</div>
-                    <p style="font-size: 0.95rem;">Win rate +20%</p>
-                </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: 800; margin-bottom: 10px;">🎁</div>
-                    <p style="font-size: 0.95rem;">100% Miễn Phí</p>
-                </div>
-            </div>
-
-            <a href="#register" class="cta-button" style="background: white; color: #667eea; margin-top: 20px;">Nhận Dashboard Miễn Phí Ngay!</a>
-            <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.8;">Không cần thẻ tín dụng • Không có điều kiện ẩn • Hỗ trợ miễn phí</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Công Cụ</h4>
-                    <a href="#how-it-works">Tính Năng</a>
-                    <a href="#benefits">Lợi Ích</a>
-                    <a href="#pricing">Giá</a>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Hỗ Trợ</h4>
-                    <a href="https://t.me/eliroxbot" target="_blank">Telegram Support</a>
-                    <a href="mailto:support@eliroxbot.com">Email Support</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Pháp Lý</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Disclaimer</a>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Liên Hệ</h4>
-                    <p>Email: <a href="mailto:support@eliroxbot.com">support@eliroxbot.com</a></p>
-                    <p>Telegram: <a href="https://t.me/eliroxbot" target="_blank">@eliroxbot</a></p>
-                    <p>Website: <a href="https://eliroxbot.com" target="_blank">eliroxbot.com</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 EliroxBot. All Rights Reserved. Made with ❤️ in Vietnam</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Interactivity -->
-    <script>
-        // FAQ Toggle
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                // Close other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle (if implemented)
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            });
-        }
-    </script>
-</body>
-</html>
+                    <p class="testimonial-text">"Trước đây tôi mất 2 tiếng mỗi sáng để check chart.
