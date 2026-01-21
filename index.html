@@ -8,7 +8,7 @@
     
     <meta property="og:title" content="DCA LONG Scanner Dashboard - Công cụ Miễn Phí Cho Trader Elirox">
     <meta property="og:description" content="Phân tích thị trường tự động, tiết kiệm 80% thời gian, tăng win rate 15-20%">
-    <meta property="og:image" content="https://tool.eliroxbot.com/images/og-image.jpg">
+    <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:url" content="https://tool.eliroxbot.com">
     
     <title>DCA LONG Scanner Dashboard - Công cụ Miễn Phí Cho Trader Elirox</title>
@@ -212,6 +212,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             position: relative;
+            margin-bottom: 60px;
         }
 
         .steps-container::before {
@@ -309,10 +310,79 @@
             font-weight: 600;
         }
 
+        /* ====== DASHBOARD PREVIEW SECTION ====== */
+        .dashboard-preview {
+            background: white;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .preview-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+        }
+
+        .preview-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .preview-text p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .preview-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .preview-features li {
+            padding: 10px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .preview-features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         /* ====== BENEFITS SECTION ====== */
         .benefits {
             padding: 100px 0;
-            background: white;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .benefits-grid {
@@ -324,10 +394,11 @@
 
         .benefit-item {
             padding: 30px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            background: white;
             border-radius: 12px;
             border-left: 4px solid #667eea;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .benefit-item:hover {
@@ -357,7 +428,7 @@
         /* ====== TESTIMONIALS ====== */
         .testimonials {
             padding: 100px 0;
-            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            background: white;
         }
 
         .testimonials-grid {
@@ -368,7 +439,7 @@
         }
 
         .testimonial-card {
-            background: white;
+            background: #f8f9fa;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -378,6 +449,7 @@
         .testimonial-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            background: white;
         }
 
         .stars {
@@ -427,7 +499,7 @@
         /* ====== PRICING ====== */
         .pricing {
             padding: 100px 0;
-            background: white;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         }
 
         .pricing-card {
@@ -438,6 +510,7 @@
             text-align: center;
             transition: all 0.3s;
             position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
         .pricing-card.featured {
@@ -768,6 +841,36 @@
         </div>
     </section>
 
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-preview" id="dashboard-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>👀 Xem Dashboard Trong Hành Động</h2>
+                <p>Interface trực quan, dữ liệu rõ ràng, quyết định nhanh</p>
+            </div>
+
+            <div class="preview-grid">
+                <div class="preview-image">
+                    <img src="images/dashboard-detailed.png" alt="DCA Scanner Dashboard Detailed View">
+                </div>
+                <div class="preview-text">
+                    <h3>Dashboard Chi Tiết</h3>
+                    <p>Phân tích toàn diện trong một cái nhìn. Tất cả thông tin quan trọng được trình bày rõ ràng, dễ hiểu.</p>
+                    
+                    <ul class="preview-features">
+                        <li>Score phân tích đa chiều (0-100)</li>
+                        <li>Thời điểm entry tối ưu</li>
+                        <li>Tính toán DCA tự động</li>
+                        <li>Alert khi setup phù hợp</li>
+                        <li>Lịch sử trading chi tiết</li>
+                    </ul>
+
+                    <p style="color: #667eea; font-weight: 600; margin-top: 30px;">Cập nhật real-time 24/7 • Mobile-friendly • Tùy chỉnh hoàn toàn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits Section -->
     <section class="benefits" id="benefits">
         <div class="container">
@@ -907,7 +1010,7 @@
                     <p>Click nút bên dưới, điền thông tin email cơ bản, xác nhận qua email. Chỉ cần 1 phút!</p>
                 </div>
 
-                <div class="reg-step">
+<div class="reg-step">
                     <h3><i class="fas fa-check"></i> Xác Nhận Email</h3>
                     <p>Kiểm tra hộp thư (kể cả spam), click link xác nhận, bạn đã có tài khoản Elirox!</p>
                 </div>
@@ -963,7 +1066,7 @@
         </div>
     </section>
 
-<!-- FAQ Section -->
+    <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-title">
