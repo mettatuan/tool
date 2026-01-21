@@ -3,45 +3,717 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DCA LONG Scanner Dashboard - Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox. Miễn phí 100%!">
+    <meta name="description" content="DCA LONG Scanner Dashboard - Công cụ phân tích thị trường chuyên nghiệp cho trader. Miễn phí cho Elirox!">
     <meta name="keywords" content="DCA, trading, Elirox, forex, crypto, dashboard, TradingView">
     
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="DCA LONG Scanner Dashboard - Công Cụ Miễn Phí">
-    <meta property="og:description" content="Phân tích thị trường tự động, tiết kiệm 80% thời gian. Miễn phí cho trader Elirox!">
+    <meta property="og:title" content="DCA LONG Scanner Dashboard - Công cụ Miễn Phí Cho Trader Elirox">
+    <meta property="og:description" content="Phân tích thị trường tự động, tiết kiệm 80% thời gian, tăng win rate 15-20%">
     <meta property="og:image" content="https://tool.eliroxbot.com/images/og-image.jpg">
     <meta property="og:url" content="https://tool.eliroxbot.com">
     
-    <title>DCA LONG Scanner Dashboard - Công Cụ Miễn Phí Cho Trader Elirox</title>
+    <title>DCA LONG Scanner Dashboard - Công cụ Miễn Phí Cho Trader Elirox</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #f8f9fa;
+        }
+
+        /* ====== HEADER ====== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ====== HOW TO USE SECTION ====== */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ====== STEPS TIMELINE ====== */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            z-index: 0;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .steps-container::before {
+                display: block;
+            }
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .step-card:hover .step-number {
+            animation: bounce 0.6s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .step-time {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ====== BENEFITS SECTION ====== */
+        .benefits {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .benefit-item .icon {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ====== TESTIMONIALS ====== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* ====== PRICING ====== */
+        .pricing {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover:not(.featured) {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-tag {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-pricing:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ====== REGISTRATION SECTION ====== */
+        .registration {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .registration-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .registration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .reg-step {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .reg-step:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .reg-step h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reg-step p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ====== FAQ ====== */
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .faq-question:hover {
+            background: #f0f4ff;
+            border-bottom-color: #667eea;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #999;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-content">
-                <div class="logo">
+            <div class="navbar-content">
+                <a href="#" class="logo">
                     <i class="fas fa-chart-line"></i>
                     <span>DCA SCANNER</span>
-                </div>
+                </a>
                 <ul class="nav-links">
-                    <li><a href="#features">Tính Năng</a></li>
                     <li><a href="#how-it-works">Cách Dùng</a></li>
                     <li><a href="#benefits">Lợi Ích</a></li>
+                    <li><a href="#testimonials">Đánh Giá</a></li>
+                    <li><a href="#pricing">Giá</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#register" class="btn-nav">Nhận Ngay</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </nav>
@@ -50,434 +722,141 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <div class="badge">🎉 MIỄN PHÍ 100% - TRỌN ĐỜI</div>
-                    <h1>Phân Tích Thị Trường <span class="gradient-text">Chuyên Nghiệp</span> Chỉ Trong <span class="gradient-text">10 Giây</span></h1>
-                    <p class="hero-subtitle">Dashboard tự động kiểm tra 10+ điều kiện kỹ thuật và cho bạn 1 con số: SCORE từ 0-100. Không cần đoán mó, không còn FOMO!</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Trader Sử Dụng</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">80%</div>
-                            <div class="stat-label">Tiết Kiệm Thời Gian</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">+20%</div>
-                            <div class="stat-label">Win Rate Tăng</div>
-                        </div>
-                    </div>
-
-                    <div class="hero-cta">
-                        <a href="#register" class="btn btn-primary btn-lg">
-                            <i class="fas fa-rocket"></i> Nhận Công Cụ Miễn Phí
-                        </a>
-                        <a href="#how-it-works" class="btn btn-outline btn-lg">
-                            <i class="fas fa-play-circle"></i> Xem Demo
-                        </a>
-                    </div>
-
-                    <div class="trust-indicators">
-                        <i class="fas fa-check-circle"></i> Không cần thẻ tín dụng
-                        <i class="fas fa-check-circle"></i> Setup 2 phút
-                        <i class="fas fa-check-circle"></i> Hỗ trợ miễn phí
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="dashboard-preview">
-                        <!-- Screenshot placeholder -->
-                        <img src="images/dashboard-preview.png" alt="DCA Scanner Dashboard Preview">
-                        <div class="preview-badge">
-                            <i class="fas fa-star"></i>
-                            <span>4.9/5.0 Rating</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Bạn Có Đang Gặp Những Vấn Đề Này?</h2>
-                <p>Hàng ngàn trader đã từng ở vị trí của bạn...</p>
-            </div>
-
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">⏰</div>
-                    <h3>Mất Quá Nhiều Thời Gian</h3>
-                    <p>Phải check H4, M30, RSI, Stochastic... Mất 2 giờ mỗi sáng chỉ để phân tích vài tài sản</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">😰</div>
-                    <h3>Không Biết Khi Nào Entry</h3>
-                    <p>"Chart có vẻ OK... hay chưa nhỉ?" - Luôn phân vân, không tự tin với quyết định</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">📉</div>
-                    <h3>Hay Bị FOMO Trading</h3>
-                    <p>Thấy price pump là vào ngay, không check điều kiện. Kết quả: entry tại đỉnh!</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🔄</div>
-                    <h3>Phân Tích Không Nhất Quán</h3>
-                    <p>Hôm nay check kỹ, hôm sau lại quên. Thiếu hệ thống, thiếu kỷ luật</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🧮</div>
-                    <h3>Tính DCA Mất Công</h3>
-                    <p>ATR bao nhiêu? Step size = ATR × gì? Cần máy tính, mất thời gian</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">📊</div>
-                    <h3>Chỉ Trade 1-2 Asset</h3>
-                    <p>Muốn diversify nhưng không đủ thời gian phân tích nhiều tài sản</p>
-                </div>
-            </div>
-
-            <div class="problem-cta">
-                <p class="problem-conclusion">Nếu bạn gật đầu với BẤT KỲ vấn đề nào trên...</p>
-                <a href="#register" class="btn btn-primary">Dashboard Này Dành Cho Bạn! <i class="fas fa-arrow-down"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution-section">
-        <div class="container">
-            <div class="solution-content">
-                <div class="solution-image">
-                    <img src="images/dashboard-detailed.png" alt="Dashboard Interface">
-                </div>
-                <div class="solution-text">
-                    <div class="badge">GIẢI PHÁP</div>
-                    <h2>Dashboard Tự Động Làm Tất Cả Cho Bạn</h2>
-                    <p class="lead">Chỉ cần nhìn vào 1 CON SỐ - SCORE từ 0 đến 100 - và bạn biết ngay nên làm gì!</p>
-
-                    <div class="solution-features">
-                        <div class="solution-feature">
-                            <div class="feature-icon green">✅</div>
-                            <div class="feature-content">
-                                <h4>Score 85-100</h4>
-                                <p>PERFECT ENTRY - Vào ngay!</p>
-                            </div>
-                        </div>
-
-                        <div class="solution-feature">
-                            <div class="feature-icon green">✅</div>
-                            <div class="feature-content">
-                                <h4>Score 70-84</h4>
-                                <p>GOOD ENTRY - Vào được</p>
-                            </div>
-                        </div>
-
-                        <div class="solution-feature">
-                            <div class="feature-icon yellow">🟡</div>
-                            <div class="feature-content">
-                                <h4>Score 55-69</h4>
-                                <p>WAIT - Chờ thêm</p>
-                            </div>
-                        </div>
-
-                        <div class="solution-feature">
-                            <div class="feature-icon red">❌</div>
-                            <div class="feature-content">
-                                <h4>Score 0-54</h4>
-                                <p>AVOID - Tránh xa!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="solution-highlight">
-                        <i class="fas fa-lightbulb"></i>
-                        <p><strong>Đơn giản vậy thôi!</strong> Không cần đoán mò, không cần phân tích phức tạp. Dashboard đã làm hết cho bạn!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="badge">TÍNH NĂNG</div>
-                <h2>6 Tính Năng Đột Phá</h2>
-                <p>Mọi thứ bạn cần để phân tích thị trường chuyên nghiệp</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon-large">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3>Phân Tích Đa Khung Tự Động</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> H4: Xu hướng tổng thể</li>
-                        <li><i class="fas fa-check"></i> M30: Điểm vào lệnh tối ưu</li>
-                        <li><i class="fas fa-check"></i> Tự động đối chiếu 2 khung</li>
-                        <li><i class="fas fa-check"></i> Không bỏ sót bất kỳ signal nào</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card featured">
-                    <div class="featured-badge">POPULAR</div>
-                    <div class="feature-icon-large">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Hệ Thống Chấm Điểm 0-100</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Biến phân tích phức tạp thành 1 số</li>
-                        <li><i class="fas fa-check"></i> Dễ hiểu, dễ quyết định</li>
-                        <li><i class="fas fa-check"></i> Loại bỏ cảm xúc trong trading</li>
-                        <li><i class="fas fa-check"></i> Nhất quán 100%</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon-large">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Tính DCA Parameters Tự Động</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> ATR-based position sizing</li>
-                        <li><i class="fas fa-check"></i> DCA Step theo volatility</li>
-                        <li><i class="fas fa-check"></i> TP & SL gợi ý</li>
-                        <li><i class="fas fa-check"></i> Copy-paste vào Elirox!</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon-large">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <h3>3 Chế Độ Phân Tích</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Pure Trend: Theo xu hướng</li>
-                        <li><i class="fas fa-check"></i> Oscillator: Entry tối ưu</li>
-                        <li><i class="fas fa-check"></i> Hybrid: Kết hợp (best!)</li>
-                        <li><i class="fas fa-check"></i> Linh hoạt theo style</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon-large">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Giao Diện Trực Quan</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Color-coded signals</li>
-                        <li><i class="fas fa-check"></i> Checkmark ✅ ❌ rõ ràng</li>
-                        <li><i class="fas fa-check"></i> Light/Dark theme</li>
-                        <li><i class="fas fa-check"></i> Tùy chỉnh vị trí, size</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon-large">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <h3>Hệ Thống Cảnh Báo</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Alert khi Perfect Entry</li>
-                        <li><i class="fas fa-check"></i> Alert khi H4 trend broken</li>
-                        <li><i class="fas fa-check"></i> Nhận qua TradingView app</li>
-                        <li><i class="fas fa-check"></i> Không bỏ lỡ cơ hội!</li>
-                    </ul>
-                </div>
+                <h1>DCA LONG Scanner Dashboard</h1>
+                <p>Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox. Miễn phí 100% trọn đời!</p>
+                <a href="#register" class="cta-button">Nhận Ngay - Miễn Phí!</a>
             </div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works-section">
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">CÁCH SỬ DỤNG</div>
-                <h2>Siêu Đơn Giản! Chỉ 3 Bước</h2>
+            <div class="section-title">
+                <h2>🚀 Siêu Đơn Giản! Chỉ 3 Bước</h2>
                 <p>Setup trong 3 phút, sử dụng cả đời</p>
             </div>
 
             <div class="steps-container">
-                <div class="step">
+                <!-- Step 1 -->
+                <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Thêm Vào TradingView</h3>
-                        <p>Copy code Pine Script và paste vào TradingView Editor. Click "Add to Chart". Xong!</p>
-                        <div class="step-time">⏱️ 2 phút</div>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-plus-circle"></i></div>
+                    <h3>Thêm Vào TradingView</h3>
+                    <p>Copy code Pine Script và paste vào TradingView Editor. Click "Add to Chart". Xong!</p>
+                    <span class="step-time">⏱️ 2 phút</span>
                 </div>
 
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-
-                <div class="step">
+                <!-- Step 2 -->
+                <div class="step-card">
                     <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Thiết Lập Theo Sở Thích</h3>
-                        <p>Chọn vị trí dashboard, theme (Light/Dark), sections muốn hiển thị. Tùy chỉnh 100%!</p>
-                        <div class="step-time">⏱️ 1 phút</div>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>Thiết Lập Theo Sở Thích</h3>
+                    <p>Chọn vị trí dashboard, theme (Light/Dark), sections muốn hiển thị. Tùy chỉnh 100%!</p>
+                    <span class="step-time">⏱️ 1 phút</span>
                 </div>
 
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-
-                <div class="step">
+                <!-- Step 3 -->
+                <div class="step-card">
                     <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Sử Dụng Mỗi Ngày</h3>
-                        <p>Mở chart → Nhìn Score → Quyết định: 🟢 Entry / 🟡 Wait / 🔴 Skip. Vậy thôi!</p>
-                        <div class="step-time">⏱️ 30 giây/asset</div>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-demo">
-                <div class="video-placeholder">
-                    <i class="fas fa-play-circle"></i>
-                    <p>Xem Video Hướng Dẫn Chi Tiết (5 phút)</p>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Sử Dụng Mỗi Ngày</h3>
+                    <p>Mở chart → Nhìn Score → Quyết định: 🟢 Entry / 🟡 Wait / 🔴 Skip. Vậy thôi!</p>
+                    <span class="step-time">⏱️ 30 giây/asset</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section id="benefits" class="benefits-section">
+    <section class="benefits" id="benefits">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">LỢI ÍCH</div>
-                <h2>Sau Khi Sử Dụng, Bạn Sẽ...</h2>
+            <div class="section-title">
+                <h2>💎 Lợi Ích Bạn Sẽ Nhận Được</h2>
+                <p>Sau khi sử dụng, bạn sẽ thay đổi hoàn toàn cách trade</p>
             </div>
 
             <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⏰</div>
-                    <h3>Tiết Kiệm 80% Thời Gian</h3>
-                    <p>Từ 90 phút → 10 phút mỗi sáng</p>
-                    <div class="benefit-value">= 40 giờ/tháng để làm việc khác!</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-hourglass-half"></i></div>
+                    <h4>Tiết Kiệm Thời Gian</h4>
+                    <p><strong>80%</strong> - Từ 90 phút → 10 phút/sáng = 40 giờ/tháng cho việc khác</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Tăng Win Rate 15-20%</h3>
-                    <p>Nhờ phân tích đa chiều và timing tốt hơn</p>
-                    <div class="benefit-value">Ít bad entries hơn 60%</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Tăng Win Rate</h4>
+                    <p><strong>15-20%</strong> - Nhờ phân tích đa chiều, ít bad entries hơn 60%</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Trade Nhiều Asset Hơn</h3>
-                    <p>Từ 1 asset → 5-10 assets</p>
-                    <div class="benefit-value">Cùng thời gian, gấp 10× cơ hội</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Trade Nhiều Asset</h4>
+                    <p>Từ <strong>1 asset → 5-10 assets</strong> cùng thời gian, gấp 10× cơ hội</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧘</div>
-                    <h3>Giảm Stress & Cảm Xúc</h3>
-                    <p>Không còn đoán mò, không còn FOMO</p>
-                    <div class="benefit-value">Quyết định dựa trên DATA</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Giảm Stress</h4>
+                    <p>Không đoán mò, không FOMO. Quyết định dựa trên <strong>DATA</strong></p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎓</div>
-                    <h3>Học Nhanh Hơn</h3>
-                    <p>Hiểu rõ tại sao setup này tốt, setup kia không</p>
-                    <div class="benefit-value">Dashboard = Private tutor 24/7</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Học Nhanh Hơn</h4>
+                    <p>Dashboard = <strong>Private tutor 24/7</strong> giáo dục chất lượng cao</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">💼</div>
-                    <h3>Professional Image</h3>
-                    <p>Screenshot dashboard → Instant credibility</p>
-                    <div class="benefit-value">Nội dung giáo dục chất lượng cao</div>
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h4>Professional Image</h4>
+                    <p>Screenshot dashboard → Instant credibility cho content & community</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">ĐÁNH GIÁ</div>
-                <h2>500+ Trader Đang Sử Dụng</h2>
-                <p>Họ nói gì về Dashboard?</p>
+            <div class="section-title">
+                <h2>⭐ 500+ Trader Đang Sử Dụng</h2>
+                <p>Họ nói gì về Dashboard này?</p>
             </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">"Trước đây tôi mất 2 tiếng mỗi sáng để check chart. Giờ chỉ cần 10 phút với dashboard này. Win rate của tôi tăng từ 65% lên 78%!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">NA</div>
                         <div class="author-info">
-                            <div class="author-name">Nguyễn A.</div>
-                            <div class="author-title">Trader 2 năm kinh nghiệm</div>
+                            <h5>Nguyễn A.</h5>
+                            <p>Trader 2 năm kinh nghiệm</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">"Là người mới, tôi không biết khi nào nên vào lệnh. Dashboard cho tôi con số rõ ràng: 85+ thì vào. Đơn giản vậy thôi. Quá tuyệt!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">TB</div>
                         <div class="author-info">
-                            <div class="author-name">Trần B.</div>
-                            <div class="author-title">Trader 3 tháng</div>
+                            <h5>Trần B.</h5>
+                            <p>Trader 3 tháng</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Tool này giúp tôi tạo content cho kênh Telegram. Screenshot dashboard rất professional! Followers tăng từ 200 lên 800 trong 2 tháng."</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Tool này giúp tôi tạo content cho kênh Telegram. Screenshot dashboard rất professional! Followers tăng từ 200 lên 800."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">LC</div>
                         <div class="author-info">
-                            <div class="author-name">Lê C.</div>
-                            <div class="author-title">Affiliate Marketer</div>
+                            <h5>Lê C.</h5>
+                            <p>Affiliate Marketer</p>
                         </div>
                     </div>
                 </div>
@@ -485,450 +864,105 @@
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison-section">
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
-                <h2>Trước & Sau Khi Dùng Dashboard</h2>
+            <div class="section-title">
+                <h2>💰 100% Miễn Phí - Trọn Đời!</h2>
+                <p>Không có chi phí ẩn, không có điều kiện bất ngờ</p>
             </div>
 
-            <div class="comparison-table">
-                <div class="comparison-header">
-                    <div class="comparison-col"></div>
-                    <div class="comparison-col before">❌ TRƯỚC</div>
-                    <div class="comparison-col after">✅ SAU</div>
-                </div>
+            <div class="testimonials-grid">
+                <div class="pricing-card featured">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Full Access</h3>
+                    <div class="price-tag">₫0</div>
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 20px;">Trọn đời</p>
 
-                <div class="comparison-row">
-                    <div class="comparison-col label">Thời gian phân tích</div>
-                    <div class="comparison-col before">90 phút/ngày</div>
-                    <div class="comparison-col after">10 phút/ngày</div>
-                </div>
+                    <ul class="pricing-features">
+                        <li>Tất cả tính năng</li>
+                        <li>Không giới hạn assets</li>
+                        <li>3 chế độ phân tích</li>
+                        <li>Auto DCA calculations</li>
+                        <li>Alert system</li>
+                        <li>Light/Dark themes</li>
+                        <li>Hỗ trợ miễn phí 24/7</li>
+                        <li>Updates miễn phí mãi mãi</li>
+                    </ul>
 
-                <div class="comparison-row">
-                    <div class="comparison-col label">Số asset trade được</div>
-                    <div class="comparison-col before">1-2 assets</div>
-                    <div class="comparison-col after">5-10 assets</div>
-                </div>
-
-                <div class="comparison-row">
-                    <div class="comparison-col label">Win rate</div>
-                    <div class="comparison-col before">~65%</div>
-                    <div class="comparison-col after">~78%</div>
-                </div>
-
-                <div class="comparison-row">
-                    <div class="comparison-col label">Cảm xúc khi trade</div>
-                    <div class="comparison-col before">Stress, phân vân</div>
-                    <div class="comparison-col after">Tự tin, bình tĩnh</div>
-                </div>
-
-                <div class="comparison-row">
-                    <div class="comparison-col label">Tính DCA params</div>
-                    <div class="comparison-col before">Thủ công, mất công</div>
-                    <div class="comparison-col after">Tự động, 1 click</div>
-                </div>
-
-                <div class="comparison-row">
-                    <div class="comparison-col label">Nhất quán</div>
-                    <div class="comparison-col before">Thay đổi mỗi ngày</div>
-                    <div class="comparison-col after">100% consistent</div>
+                    <button class="btn-pricing">Nhận Ngay!</button>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 15px;">Điều kiện: Đăng ký Elirox qua link (miễn phí 100%)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section (FREE) -->
-    <section class="pricing-section">
+    <!-- Registration Section -->
+    <section class="registration" id="register">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">GIÁ CẢ</div>
-                <h2>100% Miễn Phí - Trọn Đời!</h2>
-            </div>
-
-            <div class="pricing-card-center">
-                <div class="pricing-badge">BEST VALUE</div>
-                <div class="pricing-header">
-                    <h3>Full Access</h3>
-                    <div class="price">
-                        <span class="currency">₫</span>
-                        <span class="amount">0</span>
-                        <span class="period">/trọn đời</span>
-                    </div>
+            <h2 class="registration-title">🎁 Bước 1: Đăng Ký Elirox</h2>
+            
+            <div class="registration-steps">
+                <div class="reg-step">
+                    <h3><i class="fas fa-user-plus"></i> Tạo Tài Khoản</h3>
+                    <p>Click nút bên dưới, điền thông tin email cơ bản, xác nhận qua email. Chỉ cần 1 phút!</p>
                 </div>
 
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Tất cả tính năng</li>
-                    <li><i class="fas fa-check"></i> Không giới hạn assets</li>
-                    <li><i class="fas fa-check"></i> 3 chế độ phân tích</li>
-                    <li><i class="fas fa-check"></i> Auto DCA calculations</li>
-                    <li><i class="fas fa-check"></i> Alert system</li>
-                    <li><i class="fas fa-check"></i> Light/Dark themes</li>
-                    <li><i class="fas fa-check"></i> Hỗ trợ miễn phí</li>
-                    <li><i class="fas fa-check"></i> Updates miễn phí mãi mãi</li>
-                </ul>
-
-                <div class="pricing-note">
-                    <p><strong>Điều kiện duy nhất:</strong> Đăng ký dùng thử Elirox qua link của chúng tôi (miễn phí 100%)</p>
+                <div class="reg-step">
+                    <h3><i class="fas fa-check"></i> Xác Nhận Email</h3>
+                    <p>Kiểm tra hộp thư (kể cả spam), click link xác nhận, bạn đã có tài khoản Elirox!</p>
                 </div>
 
-                <a href="#register" class="btn btn-primary btn-lg btn-block">
-                    <i class="fas fa-gift"></i> Nhận Ngay - Miễn Phí!
-                </a>
-
-                <div class="pricing-guarantee">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>Không cần thẻ tín dụng • Không có phí ẩn</p>
+                <div class="reg-step">
+                    <h3><i class="fas fa-gift"></i> Nhận Code Dashboard</h3>
+                    <p>Quay lại trang này, điền email, nhận ngay code Pine Script + video hướng dẫn!</p>
                 </div>
             </div>
 
-            <div class="why-free">
-                <h3>Tại Sao Miễn Phí?</h3>
-                <p>Dashboard này được tạo ra để <strong>GIÁO DỤC</strong> cộng đồng trader Việt Nam về cách phân tích thị trường một cách chuyên nghiệp.</p>
-                <p><strong>Mục tiêu:</strong> Nâng cao chất lượng trader, không phải kiếm tiền từ tool.</p>
-                <p>Nếu công cụ giúp ích cho bạn, hãy:</p>
-                <ul class="why-free-list">
-                    <li><i class="fas fa-check"></i> Share cho bạn bè</li>
-                    <li><i class="fas fa-check"></i> Tham gia cộng đồng Telegram</li>
-                    <li><i class="fas fa-check"></i> Feedback để cải thiện</li>
-                </ul>
+            <div style="text-align: center; margin: 50px 0;">
+                <a href="#" class="cta-button" style="background: white; color: #667eea;">Đăng Ký Elirox Miễn Phí →</a>
             </div>
-        </div>
-    </section>
 
-    <!-- Register Section -->
-    <section id="register" class="register-section">
-        <div class="container">
-            <div class="register-content">
-                <div class="register-info">
-                    <div class="badge">NHẬN DASHBOARD NGAY</div>
-                    <h2>2 Bước Đơn Giản</h2>
-                    
-                    <div class="register-steps">
-                        <div class="register-step">
-                            <div class="step-num">1</div>
-                            <div class="step-text">
-                                <h4>Đăng Ký Elirox (Miễn Phí)</h4>
-                                <p>Click nút bên dưới → Đăng ký tài khoản Elirox miễn phí → Nhận email xác nhận</p>
-                            </div>
-                        </div>
+            <h2 class="registration-title">📋 Bước 2: Nhận Code Dashboard</h2>
 
-                        <div class="register-step">
-                            <div class="step-num">2</div>
-                            <div class="step-text">
-                                <h4>Điền Form Nhận Code</h4>
-                                <p>Sau khi đăng ký Elirox xong, điền email vào form → Nhận code Pine Script ngay lập tức!</p>
-                            </div>
-                        </div>
+            <div style="max-width: 500px; margin: 40px auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Email đã đăng ký Elirox *</label>
+                        <input type="email" placeholder="example@email.com" required>
                     </div>
 
-                    <div class="register-benefits">
-                        <h4>🎁 Bạn Nhận Được:</h4>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Full code Pine Script</li>
-                            <li><i class="fas fa-check-circle"></i> Video hướng dẫn chi tiết (30 phút)</li>
-                            <li><i class="fas fa-check-circle"></i> Checklist phân tích hàng ngày</li>
-                            <li><i class="fas fa-check-circle"></i> Template Google Sheets tracking</li>
-                            <li><i class="fas fa-check-circle"></i> Access vào Telegram community</li>
-                            <li><i class="fas fa-check-circle"></i> Weekly market analysis</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="register-form-container">
-                    <div class="form-card">
-                        <div class="form-step active" id="step1">
-                            <h3>Bước 1: Đăng Ký Elirox</h3>
-                            <p class="form-description">Elirox là nền tảng trading bot AI-powered. Đăng ký miễn phí để dùng thử (không bắt buộc nạp tiền).</p>
-                            
-                            <a href="https://reg.eliroxbot.com/" target="_blank" class="btn btn-elirox btn-block" id="eliroxRegBtn">
-                                <i class="fas fa-external-link-alt"></i>
-                                Đăng Ký Elirox Miễn Phí
-                            </a>
-
-                            <div class="form-note">
-                                <i class="fas fa-info-circle"></i>
-                                <p>Sau khi đăng ký xong, quay lại trang này và điền form bên dưới</p>
-                            </div>
-
-                            <button class="btn btn-outline btn-block" id="continueBtn" disabled>
-                                <i class="fas fa-arrow-down"></i>
-                                Tôi Đã Đăng Ký Xong
-                            </button>
-                        </div>
-
-                        <div class="form-step" id="step2">
-                            <h3>Bước 2: Nhận Code Dashboard</h3>
-                            <p class="form-description">Điền email bạn đã dùng đăng ký Elirox để nhận code ngay!</p>
-
-                            <form id="getCodeForm">
-                                <div class="form-group">
-                                    <label for="email">Email đã đăng ký Elirox *</label>
-                                    <input type="email" id="email" name="email" class="form-control" required placeholder="example@gmail.com">
-                                    <small class="form-hint">Email này phải trùng với email đăng ký Elirox</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Họ Tên *</label>
-                                    <input type="text" id="name" name="name" class="form-control" required placeholder="Nguyễn Văn A">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="telegram">Telegram Username (optional)</label>
-                                    <input type="text" id="telegram" name="telegram" class="form-control" placeholder="@username">
-                                    <small class="form-hint">Để nhận support nhanh hơn</small>
-                                </div>
-
-                                <div class="form-group checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="confirmElirox" required>
-                                        <span>Tôi xác nhận đã đăng ký Elirox qua link <a href="https://reg.eliroxbot.com/" target="_blank">reg.eliroxbot.com</a></span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="agreeTerms" required>
-                                        <span>Tôi đồng ý với <a href="#" data-modal="terms">Điều Khoản Sử Dụng</a></span>
-                                    </label>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitBtn">
-                                    <i class="fas fa-rocket"></i>
-                                    Nhận Code Ngay!
-                                </button>
-
-                                <div class="form-security">
-                                    <i class="fas fa-lock"></i>
-                                    <p>Thông tin của bạn được bảo mật 100%</p>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="form-step" id="step3">
-                            <div class="success-message">
-                                <div class="success-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <h3>Chúc Mừng! 🎉</h3>
-                                <p>Code Dashboard đã được gửi đến email của bạn!</p>
-
-                                <div class="success-instructions">
-                                    <h4>Bước tiếp theo:</h4>
-                                    <ol>
-                                        <li>Check email (kể cả spam folder)</li>
-                                        <li>Copy toàn bộ code Pine Script</li>
-                                        <li>Mở TradingView → Pine Editor</li>
-                                        <li>Paste code → Save → Add to Chart</li>
-                                    </ol>
-                                </div>
-
-                                <div class="success-links">
-                                    <a href="https://t.me/eliroxbot" target="_blank" class="btn btn-primary">
-                                        <i class="fab fa-telegram"></i>
-                                        Tham Gia Telegram
-                                    </a>
-                                    <a href="#how-it-works" class="btn btn-outline">
-                                        <i class="fas fa-video"></i>
-                                        Xem Video Hướng Dẫn
-                                    </a>
-                                </div>
-
-                                <div class="success-note">
-                                    <p>Có vấn đề? Liên hệ support: <a href="mailto:support@eliroxbot.com">support@eliroxbot.com</a></p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>Họ Tên *</label>
+                        <input type="text" placeholder="Nguyễn Văn A" required>
                     </div>
 
-                    <div class="trust-badges">
-                        <div class="trust-badge">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>100% Secure</span>
-                        </div>
-                        <div class="trust-badge">
-                            <i class="fas fa-envelope"></i>
-                            <span>Instant Delivery</span>
-                        </div>
-                        <div class="trust-badge">
-                            <i class="fas fa-headset"></i>
-                            <span>24/7 Support</span>
-                        </div>
+                    <div class="form-group">
+                        <label>Telegram Username (tuỳ chọn)</label>
+                        <input type="text" placeholder="@yourname" >
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" required>
+                            Tôi xác nhận đã đăng ký Elirox
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" required>
+                            Tôi đồng ý với Điều Khoản Sử Dụng
+                        </label>
+                    </div>
+
+                    <button class="btn-pricing" style="background: white; color: #667eea; margin-top: 20px;">Nhận Code Ngay!</button>
+                </form>
+
+                <p style="font-size: 0.85rem; margin-top: 15px; opacity: 0.8;">✅ Thông tin của bạn được bảo mật 100%</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq" id="faq">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">FAQ</div>
-                <h2>Câu Hỏi Thường Gặp</h2>
-            </div>
-
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Tôi cần phải biết lập trình không?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>KHÔNG!</strong> Chỉ cần copy-paste code vào TradingView. Thời gian: 2 phút. Hướng dẫn chi tiết có video.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Dashboard chỉ dùng cho Elirox?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dashboard phân tích thị trường, hoạt động trên TradingView. Bạn có thể dùng kết quả để trade trên BẤT KỲ nền tảng nào (Elirox, MT4, MT5, Binance...). Nhưng DCA parameters được tối ưu cho Elirox.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Tôi có thể dùng cho tài sản nào?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>TẤT CẢ</strong> tài sản có trên TradingView: Forex (XAUUSD, EURUSD...), Crypto (BTCUSD, ETHUSD...), Indices (SPX500, US30...), Commodities (OIL, SILVER...).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Win rate có tăng không?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dựa trên test data: Setup với Score 85+: Win rate ~85-90%, Score 70-84: ~75-80%. Tổng thể cải thiện: +15-20% so với manual analysis. <strong>LƯU Ý:</strong> Kết quả tùy thuộc vào kỷ luật và risk management.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Tôi đang dùng phone, có dùng được không?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>CÓ!</strong> Dashboard hiển thị trên: TradingView Desktop, Web Browser, Mobile App (iOS/Android). Responsive design, tự động điều chỉnh kích thước.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Có update mới không? Có phải trả phí không?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Updates <strong>HOÀN TOÀN MIỄN PHÍ!</strong> Khi có version mới, chúng tôi sẽ thông báo trong Telegram. Bạn chỉ cần copy code mới và paste lại.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta-section">
-        <div class="container">
-            <div class="final-cta-content">
-                <h2>Bạn Đã Sẵn Sàng Nâng Tầm Trading Game?</h2>
-                <p>Hơn 500+ trader đã sử dụng công cụ này. Đến lượt BẠN!</p>
-
-                <div class="cta-stats">
-                    <div class="cta-stat">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-text">Tiết kiệm 40 giờ/tháng</div>
-                    </div>
-                    <div class="cta-stat">
-                        <div class="stat-icon">📈</div>
-                        <div class="stat-text">Win rate +20%</div>
-                    </div>
-                    <div class="cta-stat">
-                        <div class="stat-icon">🎁</div>
-                        <div class="stat-text">100% Miễn Phí</div>
-                    </div>
-                </div>
-
-                <a href="#register" class="btn btn-primary btn-xl pulse">
-                    <i class="fas fa-rocket"></i> Nhận Dashboard Miễn Phí Ngay!
-                </a>
-
-                <div class="cta-guarantee">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>Không cần thẻ tín dụng • Không có điều kiện ẩn • Hỗ trợ miễn phí</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <i class="fas fa-chart-line"></i>
-                        <span>DCA SCANNER</span>
-                    </div>
-                    <p>Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox. Miễn phí 100%!</p>
-                    <div class="social-links">
-                        <a href="https://t.me/eliroxbot" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://eliroxbot.com" target="_blank"><i class="fas fa-globe"></i></a>
-                        <a href="mailto:support@eliroxbot.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Công Cụ</h4>
-                    <ul>
-                        <li><a href="#features">Tính Năng</a></li>
-                        <li><a href="#how-it-works">Cách Dùng</a></li>
-                        <li><a href="#benefits">Lợi Ích</a></li>
-                        <li><a href="#register">Nhận Ngay</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Hỗ Trợ</h4>
-                    <ul>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="https://t.me/eliroxbot">Telegram Support</a></li>
-                        <li><a href="mailto:support@eliroxbot.com">Email Support</a></li>
-                        <li><a href="#" data-modal="terms">Điều Khoản</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Liên Hệ</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-envelope"></i> support@eliroxbot.com</li>
-                        <li><i class="fab fa-telegram"></i> @eliroxbot</li>
-                        <li><i class="fas fa-globe"></i> eliroxbot.com</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 EliroxBot. All Rights Reserved. Made with ❤️ in Vietnam</p>
-                <div class="footer-links">
-                    <a href="#" data-modal="privacy">Privacy Policy</a>
-                    <a href="#" data-modal="terms">Terms of Service</a>
-                    <a href="#" data-modal="disclaimer">Disclaimer</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollTopBtn">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
