@@ -274,7 +274,7 @@ async function submitFormData(formData) {
 async function submitToGoogleSheets(formData) {
     // Google Apps Script Web App URL
     // You need to deploy a Google Apps Script as a web app
-    const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+    const SCRIPT_URL = '11R_VDfuhC-Qe-wIusfUyskjSK5n8OJrV38S0VrFyRFk0nbajsh0p1H7V';
     
     try {
         const response = await fetch(SCRIPT_URL, {
