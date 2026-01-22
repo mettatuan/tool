@@ -591,17 +591,23 @@
                 // Send to backend
                 const response = await fetch(CONFIG.API_URL, {
                     method: 'POST',
+                    mode: 'cors',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'text/plain',  // Avoid CORS preflight
                     },
                     body: JSON.stringify(formData)
                 });
+
+                // Check if response is ok
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
                 const result = await response.json();
 
                 hideLoading();
 
-                if (result.status === 'success') {
+                if (result.success === true) {
                     // Show success modal
                     showSuccessModal(formData);
                     
@@ -615,7 +621,15 @@
             } catch (error) {
                 hideLoading();
                 console.error('Submit error:', error);
-                showError('Không thể kết nối server. Vui lòng kiểm tra kết nối và thử lại.');
+                
+                // More detailed error message
+                if (error.message.includes('Failed to fetch')) {
+                    showError('Không thể kết nối server. Vui lòng thử lại sau 30 giây hoặc liên hệ @mettatuan');
+                } else if (error.message.includes('HTTP error')) {
+                    showError('Server đang bận. Vui lòng thử lại sau ít phút.');
+                } else {
+                    showError('Lỗi: ' + error.message);
+                }
             }
         }
 
