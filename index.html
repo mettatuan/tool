@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nhận DCA Scanner miễn phí - Công cụ phân tích thị trường tự động cho trader Elirox">
-    <title>Elirox - Nhận DCA Scanner Miễn Phí</title>
+    <meta name="description" content="Nhận DCA Scanner miễn phí trị giá $500 - Công cụ phân tích thị trường tự động cho trader Elirox">
+    <title>Nhận DCA Scanner Miễn Phí - Giá Trị $500</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -19,106 +19,201 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 80px 20px;
         }
 
         .container {
             max-width: 1200px;
-            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+        }
+
+        .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content {
             color: white;
         }
 
+        .value-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+        }
+
         .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 .highlight {
+            color: #ffd700;
+            display: block;
         }
 
         .hero-content .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.35rem;
+            margin-bottom: 32px;
             opacity: 0.95;
+            line-height: 1.6;
         }
 
-        .features-list {
+        .feature-list {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 32px;
         }
 
-        .features-list li {
-            padding: 0.75rem 0;
+        .feature-list li {
+            padding: 12px 0;
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 1.1rem;
         }
 
-        .features-list i {
+        .feature-list i {
             color: #ffd700;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            min-width: 24px;
         }
 
-        .stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
         }
 
-        .stat-item {
+        .stat-card {
             text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
         }
 
         .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #ffd700;
+            display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
+            margin-top: 4px;
         }
 
+        /* Form Card */
         .form-card {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 48px 40px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .limited-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4757;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            animation: shake 1s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(-2deg); }
+            75% { transform: translateX(-50%) rotate(2deg); }
         }
 
         .form-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .form-header h2 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: #1a1a2e;
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
         }
 
-        .form-header .badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+        .form-header .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin: 12px 0;
+        }
+
+        .form-header .price .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
+
+        .form-header .condition {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 16px;
             font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
         }
 
         .form-group {
@@ -130,14 +225,14 @@
             margin-bottom: 8px;
             color: #1a1a2e;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 16px 18px;
             border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 1rem;
             transition: all 0.3s;
             font-family: 'Inter', sans-serif;
@@ -146,30 +241,26 @@
         .form-group input:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .form-group input::placeholder {
-            color: #999;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
         }
 
         .btn-submit {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            border-radius: 12px;
+            font-size: 1.15rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 10px;
+            transition: all 0.3s;
+            margin-top: 12px;
         }
 
         .btn-submit:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
         }
 
         .btn-submit:disabled {
@@ -177,19 +268,205 @@
             cursor: not-allowed;
         }
 
-        .terms {
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8f9fa;
+        }
+
+        .section-header {
             text-align: center;
-            font-size: 0.85rem;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
             color: #666;
-            margin-top: 20px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .terms a {
-            color: #667eea;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .screenshot-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .screenshot-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #ffd700;
+        }
+
+        .screenshot-card p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        /* Value Proposition */
+        .value-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .value-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .value-box h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .value-box .price-display {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin: 24px 0;
+        }
+
+        .value-box .condition-text {
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px 32px;
+            border-radius: 16px;
+            margin-top: 32px;
+            font-weight: 600;
+        }
+
+        .value-box .affiliate-link {
+            color: #ffd700;
+            font-weight: 800;
             text-decoration: none;
+            border-bottom: 2px solid #ffd700;
         }
 
-        /* Modal Styles */
+        /* CTA Section */
+        .cta-section {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 20px 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -209,9 +486,9 @@
 
         .modal-content {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 600px;
             width: 90%;
             text-align: center;
             animation: slideUp 0.4s ease;
@@ -220,7 +497,7 @@
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -229,42 +506,36 @@
         }
 
         .modal-icon {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2.5rem;
+            margin: 0 auto 24px;
+            font-size: 3rem;
             color: white;
         }
 
         .modal-content h3 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: #1a1a2e;
-            margin-bottom: 1rem;
-        }
-
-        .modal-content p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            margin-bottom: 16px;
         }
 
         .user-info {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
+            padding: 24px;
+            border-radius: 16px;
+            margin: 24px 0;
             text-align: left;
         }
 
         .user-info-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -272,42 +543,63 @@
             border-bottom: none;
         }
 
-        .user-info-label {
-            color: #666;
-            font-weight: 600;
-        }
-
-        .user-info-value {
-            color: #1a1a2e;
-            font-weight: 600;
-        }
-
         .btn-telegram {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             background: #0088cc;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            transition: all 0.3s;
+            gap: 12px;
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         .btn-telegram:hover {
             background: #006699;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4);
         }
 
-        .btn-telegram i {
-            font-size: 1.5rem;
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-grid,
+            .benefits-grid,
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .value-box .price-display {
+                font-size: 3rem;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                padding: 32px 24px;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+            }
         }
 
         .loading {
@@ -321,202 +613,279 @@
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+            margin: 0 auto 16px;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        .error-message {
-            background: #fee;
-            color: #c33;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 15px 0;
-            display: none;
-        }
-
-        .error-message.active {
-            display: block;
-        }
-
-        .success-check {
-            color: #4caf50;
-            font-size: 4rem;
-            animation: scaleIn 0.5s ease;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .stats {
-                justify-content: center;
-            }
-
-            .form-card {
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .modal-content {
-                padding: 30px 20px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Content -->
-        <div class="hero-content">
-            <h1>🎯 Nhận DCA Scanner Miễn Phí</h1>
-            <p class="subtitle">Công cụ phân tích thị trường tự động cho trader thông minh</p>
-            
-            <ul class="features-list">
-                <li>
-                    <i class="fas fa-chart-line"></i>
-                    <span>Phân tích kỹ thuật tự động 24/7</span>
-                </li>
-                <li>
-                    <i class="fas fa-brain"></i>
-                    <span>AI đánh giá điểm vào lệnh 0-100</span>
-                </li>
-                <li>
-                    <i class="fas fa-robot"></i>
-                    <span>Tối ưu tham số DCA tự động</span>
-                </li>
-                <li>
-                    <i class="fas fa-bell"></i>
-                    <span>Thông báo Telegram realtime</span>
-                </li>
-                <li>
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Miễn phí 100% - Không giới hạn</span>
-                </li>
-            </ul>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left: Content -->
+                <div class="hero-content">
+                    <div class="value-badge">
+                        <i class="fas fa-gift"></i>
+                        <span>ƯU ĐÃI ĐẶC BIỆT - GIÁ TRỊ $500</span>
+                    </div>
+                    <h1>
+                        Nhận DCA Scanner
+                        <span class="highlight">Miễn Phí 100%</span>
+                    </h1>
+                    <p class="subtitle">
+                        Công cụ phân tích thị trường tự động với AI, giúp bạn đưa ra quyết định đầu tư thông minh hơn. Chỉ dành riêng cho thành viên đăng ký qua link đặc biệt.
+                    </p>
 
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">1,247</div>
-                    <div class="stat-label">Traders đang dùng</div>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Phân tích kỹ thuật tự động 24/7</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI đánh giá điểm vào lệnh 0-100</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tối ưu tham số DCA tự động</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Thông báo Telegram realtime</span>
+                        </li>
+                    </ul>
+
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <span class="stat-number">1,247+</span>
+                            <span class="stat-label">Traders đang dùng</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Hài lòng</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Hoạt động</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">94%</div>
-                    <div class="stat-label">Hài lòng</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Hoạt động</div>
+
+                <!-- Right: Form -->
+                <div class="form-card">
+                    <div class="limited-badge">⏰ CHỈ CÒN 27 SUẤT</div>
+                    
+                    <div class="form-header">
+                        <h2>Đăng ký ngay - Miễn phí</h2>
+                        <div class="price">
+                            <span class="old-price">$500</span>
+                            <span>$0</span>
+                        </div>
+                        <div class="condition">
+                            <i class="fas fa-info-circle"></i>
+                            Chỉ dành cho thành viên đăng ký qua link: <strong>reg.eliroxbot.com</strong>
+                        </div>
+                    </div>
+
+                    <form id="registrationForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-user"></i> Họ & Tên *
+                            </label>
+                            <input type="text" id="fullName" placeholder="Nguyễn Văn A" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fab fa-telegram"></i> Telegram Username *
+                            </label>
+                            <input type="text" id="telegram" placeholder="@username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-envelope"></i> Email *
+                            </label>
+                            <input type="email" id="email" placeholder="email@example.com" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <i class="fas fa-rocket"></i> Đăng ký nhận Scanner miễn phí
+                        </button>
+                    </form>
+
+                    <p style="text-align: center; font-size: 0.85rem; color: #999; margin-top: 20px;">
+                        🔒 Thông tin được bảo mật tuyệt đối
+                    </p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Registration Form -->
-        <div class="form-card">
-            <div class="form-header">
-                <div class="badge">✨ MIỄN PHÍ 100%</div>
-                <h2>Đăng ký ngay - 30 giây</h2>
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lợi Ích Vượt Trội Của DCA Scanner</h2>
+                <p>Công cụ chuyên nghiệp dành cho trader thông minh</p>
             </div>
 
-            <form id="registrationForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="fullName">
-                        <i class="fas fa-user"></i> Họ & Tên
-                    </label>
-                    <input 
-                        type="text" 
-                        id="fullName" 
-                        name="fullName" 
-                        placeholder="Nguyễn Văn A" 
-                        required
-                    >
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Phân Tích Thông Minh</h3>
+                    <p>Thuật toán AI phân tích hàng trăm chỉ báo kỹ thuật và đưa ra điểm số từ 0-100 cho mỗi tín hiệu vào lệnh.</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="telegram">
-                        <i class="fab fa-telegram"></i> Telegram Username
-                    </label>
-                    <input 
-                        type="text" 
-                        id="telegram" 
-                        name="telegram" 
-                        placeholder="@username hoặc username" 
-                        required
-                    >
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Tiết Kiệm Thời Gian</h3>
+                    <p>Tự động quét thị trường 24/7, bạn không cần ngồi theo dõi chart cả ngày. Nhận thông báo ngay khi có cơ hội.</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">
-                        <i class="fas fa-envelope"></i> Email
-                    </label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="email@example.com" 
-                        required
-                    >
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quản Trị Rủi Ro</h3>
+                    <p>Tối ưu hóa tham số DCA: số lệnh, take profit, phân bổ vốn để tối đa hóa lợi nhuận và kiểm soát rủi ro.</p>
                 </div>
 
-                <button type="submit" class="btn-submit" id="submitBtn">
-                    <i class="fas fa-rocket"></i> Đăng ký nhận Scanner
-                </button>
-            </form>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Đa Dạng Chiến Lược</h3>
+                    <p>Hỗ trợ nhiều chiến lược: DCA, Grid, Scalping. Phù hợp với mọi phong cách giao dịch và mức độ rủi ro.</p>
+                </div>
 
-            <p class="terms">
-                Bằng việc đăng ký, bạn đồng ý với 
-                <a href="#" onclick="return false;">Điều khoản sử dụng</a>
-            </p>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Thông Báo Realtime</h3>
+                    <p>Nhận cảnh báo qua Telegram ngay lập tức khi có tín hiệu mạnh, không bỏ lỡ bất kỳ cơ hội nào.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Tùy Chỉnh Linh Hoạt</h3>
+                    <p>Tự do điều chỉnh các thông số theo ý muốn: khung thời gian, chỉ báo, mức lọc tín hiệu phù hợp với bạn.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section screenshots-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Giao Diện DCA Scanner</h2>
+                <p>Dễ sử dụng, trực quan, mạnh mẽ</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <h3>📊 Dashboard Tổng Quan</h3>
+                    <p>Theo dõi toàn bộ portfolio, lợi nhuận, và performance của các bot DCA trong một màn hình.</p>
+                    <div class="screenshot-img">
+                        <i class="fas fa-image"></i>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <h3>🎯 Phân Tích Tín Hiệu</h3>
+                    <p>AI scoring từ 0-100 điểm cho mỗi tín hiệu, kèm phân tích chi tiết về xu hướng và độ mạnh.</p>
+                    <div class="screenshot-img">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <h3>⚙️ Tối Ưu Tham Số</h3>
+                    <p>Gợi ý tham số DCA tối ưu dựa trên volatility, trend strength và market conditions.</p>
+                    <div class="screenshot-img">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <h3>💬 Thông Báo Telegram</h3>
+                    <p>Nhận alerts trực tiếp qua Telegram với đầy đủ thông tin: entry, TP, SL, confidence level.</p>
+                    <div class="screenshot-img">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="section value-section">
+        <div class="container">
+            <div class="value-box">
+                <h2>Giá Trị Thực Sự</h2>
+                <div class="price-display">$500</div>
+                <p style="font-size: 1.2rem; opacity: 0.95;">
+                    DCA Scanner thường được bán với giá <strong>$500/năm</strong> trên thị trường.<br>
+                    Công cụ tương tự từ các nhà cung cấp khác có giá từ $30-50/tháng.
+                </p>
+                <div class="condition-text">
+                    <i class="fas fa-gift"></i> Bạn nhận <strong>MIỄN PHÍ 100%</strong> khi đăng ký tài khoản Elirox qua link đặc biệt:
+                    <br><br>
+                    <a href="https://reg.eliroxbot.com/" class="affiliate-link" target="_blank">
+                        👉 https://reg.eliroxbot.com/
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Sẵn sàng trở thành trader thông minh?</h2>
+                <p>
+                    Hơn 1,200 traders đã sử dụng DCA Scanner để tối ưu hóa chiến lược đầu tư.<br>
+                    Đăng ký ngay hôm nay để không bỏ lỡ cơ hội này!
+                </p>
+                <a href="#" onclick="scrollToForm(); return false;" class="btn-cta">
+                    <i class="fas fa-rocket"></i> Đăng ký miễn phí ngay
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
             <div class="modal-icon">
-                <i class="fas fa-check success-check"></i>
+                <i class="fas fa-check"></i>
             </div>
             <h3>🎉 Đăng ký thành công!</h3>
             <p>Thông tin của bạn đã được ghi nhận. Vui lòng xác nhận qua Telegram để hoàn tất.</p>
 
-            <div class="user-info" id="userInfoDisplay">
-                <!-- Will be filled by JavaScript -->
-            </div>
+            <div class="user-info" id="userInfoDisplay"></div>
 
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+            <p style="font-size: 0.95rem; color: #666; margin: 20px 0;">
                 ⏱️ Thời gian xử lý: <strong>5-15 phút</strong><br>
                 ✅ Bạn sẽ nhận Scanner qua email và Telegram
             </p>
@@ -526,7 +895,7 @@
                 Xác nhận qua Telegram
             </a>
 
-            <button onclick="closeModal()" style="background: none; border: none; color: #666; margin-top: 15px; cursor: pointer; text-decoration: underline;">
+            <button onclick="closeModal()" style="background: none; border: none; color: #666; margin-top: 16px; cursor: pointer; text-decoration: underline;">
                 Đóng
             </button>
         </div>
@@ -543,29 +912,15 @@
     </div>
 
     <script>
-        // ============================================
-        // CONFIGURATION - CẬP NHẬT SAU KHI DEPLOY
-        // ============================================
-        
         const CONFIG = {
-            // Google Apps Script URL - cập nhật sau khi deploy
             API_URL: 'https://script.google.com/macros/s/AKfycbyeni_JXWwCuz9WnqWDyOYAchjHk1Bcu52RrvvsvvfFcuDkEldWoJs58xgqP-P5u75F/exec',
-            
-            // Telegram Bot username
             BOT_USERNAME: 'EliroxBot',
-            
-            // Source tag (để tracking)
             SOURCE: 'Web Form - tool.eliroxbot.com'
         };
 
-        // ============================================
-        // FORM SUBMISSION HANDLER
-        // ============================================
-        
         async function handleSubmit(event) {
             event.preventDefault();
             
-            // Get form data
             const formData = {
                 fullName: document.getElementById('fullName').value.trim(),
                 telegram: document.getElementById('telegram').value.trim(),
@@ -573,32 +928,27 @@
                 source: CONFIG.SOURCE
             };
 
-            // Validate
             if (!formData.fullName || !formData.telegram || !formData.email) {
-                showError('Vui lòng điền đầy đủ thông tin');
+                alert('Vui lòng điền đầy đủ thông tin');
                 return;
             }
 
-            // Ensure telegram starts with @
             if (!formData.telegram.startsWith('@')) {
                 formData.telegram = '@' + formData.telegram;
             }
 
-            // Show loading
             showLoading();
 
             try {
-                // Send to backend
                 const response = await fetch(CONFIG.API_URL, {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
-                        'Content-Type': 'text/plain',  // Avoid CORS preflight
+                        'Content-Type': 'text/plain',
                     },
                     body: JSON.stringify(formData)
                 });
 
-                // Check if response is ok
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -608,35 +958,24 @@
                 hideLoading();
 
                 if (result.success === true) {
-                    // Show success modal
                     showSuccessModal(formData);
-                    
-                    // Reset form
                     document.getElementById('registrationForm').reset();
                 } else {
-                    // Show error
-                    showError(result.message || 'Có lỗi xảy ra. Vui lòng thử lại.');
+                    alert('❌ ' + (result.message || 'Có lỗi xảy ra. Vui lòng thử lại.'));
                 }
 
             } catch (error) {
                 hideLoading();
                 console.error('Submit error:', error);
                 
-                // More detailed error message
                 if (error.message.includes('Failed to fetch')) {
-                    showError('Không thể kết nối server. Vui lòng thử lại sau 30 giây hoặc liên hệ @mettatuan');
-                } else if (error.message.includes('HTTP error')) {
-                    showError('Server đang bận. Vui lòng thử lại sau ít phút.');
+                    alert('❌ Không thể kết nối server. Vui lòng thử lại sau.');
                 } else {
-                    showError('Lỗi: ' + error.message);
+                    alert('❌ Lỗi: ' + error.message);
                 }
             }
         }
 
-        // ============================================
-        // UI FUNCTIONS
-        // ============================================
-        
         function showLoading() {
             document.getElementById('loadingModal').classList.add('active');
             document.getElementById('submitBtn').disabled = true;
@@ -648,28 +987,25 @@
         }
 
         function showSuccessModal(userData) {
-            // Fill user info
             const userInfoHtml = `
                 <div class="user-info-item">
-                    <span class="user-info-label">Họ tên:</span>
-                    <span class="user-info-value">${userData.fullName}</span>
+                    <span style="color: #666; font-weight: 600;">Họ tên:</span>
+                    <span style="color: #1a1a2e; font-weight: 600;">${userData.fullName}</span>
                 </div>
                 <div class="user-info-item">
-                    <span class="user-info-label">Telegram:</span>
-                    <span class="user-info-value">${userData.telegram}</span>
+                    <span style="color: #666; font-weight: 600;">Telegram:</span>
+                    <span style="color: #1a1a2e; font-weight: 600;">${userData.telegram}</span>
                 </div>
                 <div class="user-info-item">
-                    <span class="user-info-label">Email:</span>
-                    <span class="user-info-value">${userData.email}</span>
+                    <span style="color: #666; font-weight: 600;">Email:</span>
+                    <span style="color: #1a1a2e; font-weight: 600;">${userData.email}</span>
                 </div>
             `;
             document.getElementById('userInfoDisplay').innerHTML = userInfoHtml;
 
-            // Set Telegram button link with deep link
             const telegramLink = `https://t.me/${CONFIG.BOT_USERNAME}?start=verify_${encodeURIComponent(userData.email)}`;
             document.getElementById('telegramConfirmBtn').href = telegramLink;
 
-            // Show modal
             document.getElementById('successModal').classList.add('active');
         }
 
@@ -677,27 +1013,15 @@
             document.getElementById('successModal').classList.remove('active');
         }
 
-        function showError(message) {
-            alert('❌ ' + message);
+        function scrollToForm() {
+            document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Close modal when clicking outside
         document.getElementById('successModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
-
-        // ============================================
-        // TELEGRAM DEEP LINK HANDLER
-        // ============================================
-        
-        // Check if user came from Telegram (optional)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('ref')) {
-            // Auto-fill source or do something
-            console.log('Referral source:', urlParams.get('ref'));
-        }
     </script>
 </body>
 </html>
