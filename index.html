@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DCA LONG Scanner Dashboard - Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox. Miễn phí 100 người đầu tiên!">
-    <meta name="keywords" content="DCA, trading, Elirox, forex, crypto, dashboard, TradingView">
-    
-    <meta property="og:title" content="DCA LONG Scanner Dashboard - Công cụ Cho Trader Elirox">
-    <meta property="og:description" content="Phân tích thị trường tự động, tiết kiệm 80% thời gian, tăng win rate 15-20%">
-    <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://tool.eliroxbot.com">
-    
     <title>DCA LONG Scanner Dashboard - Công cụ Cho Trader Elirox</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -399,6 +392,7 @@
         .benefit-item p {
             color: #666;
             font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .testimonials {
@@ -500,7 +494,6 @@
             border-color: #667eea;
             box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
             transform: scale(1.05);
-            position: relative;
         }
 
         .pricing-badge {
@@ -521,6 +514,13 @@
             font-weight: 800;
             color: #667eea;
             margin: 20px 0;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .pricing-features {
@@ -563,112 +563,65 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
-        .registration {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .registration-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .registration-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .reg-step {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .reg-step:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .reg-step h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
         .faq {
             padding: 100px 0;
-            background: white;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .faq-item {
             margin-bottom: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .faq-question {
-            padding: 20px;
-            background: white;
+            padding: 25px;
             cursor: pointer;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
-            border-bottom: 2px solid transparent;
+            color: #1a1a2e;
         }
 
         .faq-question:hover {
             background: #f0f4ff;
-            border-bottom-color: #667eea;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
 
         .faq-answer {
-            padding: 0 20px;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
-            padding: 20px;
+            padding: 0 25px 25px 25px;
             max-height: 500px;
         }
 
         .faq-answer p {
             color: #666;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 10px;
         }
 
         .faq-answer a {
@@ -688,35 +641,96 @@
             text-align: center;
         }
 
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .urgency-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .urgency-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .counter {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffc107;
+        }
+
         footer {
             background: #1a1a2e;
             color: white;
-            padding: 50px 0 20px;
+            padding: 60px 0 30px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
             margin-bottom: 40px;
-            text-align: left;
         }
 
         .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.8;
             margin-bottom: 15px;
-            font-size: 1.1rem;
         }
 
         .footer-section a {
             display: block;
             color: #ccc;
             text-decoration: none;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
             color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
@@ -726,6 +740,135 @@
             text-align: center;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .modal-header p {
+            opacity: 0.95;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .modal-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .section-title h2 { font-size: 2rem; }
@@ -733,6 +876,8 @@
             .preview-grid { grid-template-columns: 1fr; gap: 30px; }
             .pricing-card.featured { transform: scale(1); }
             .testimonials-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .final-cta h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -747,12 +892,11 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="#how-it-works">Cách Dùng</a></li>
-                    <li><a href="#comparison">So Sánh</a></li>
                     <li><a href="#benefits">Lợi Ích</a></li>
                     <li><a href="#testimonials">Đánh Giá</a></li>
                     <li><a href="#pricing">Giá</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="https://reg.eliroxbot.com" target="_blank" class="btn-nav">Đăng Ký Ngay</a></li>
+                    <li><a href="#" class="btn-nav" onclick="openModal(); return false;">Đăng Ký Ngay</a></li>
                 </ul>
             </div>
         </div>
@@ -764,7 +908,8 @@
             <div class="hero-content">
                 <h1>DCA LONG Scanner Dashboard</h1>
                 <p>Công cụ phân tích thị trường chuyên nghiệp cho trader Elirox</p>
-                <a href="https://reg.eliroxbot.com" target="_blank" class="cta-button">🎁 Miễn Phí Cho 100 Người Đầu Tiên!</a>
+                <a href="https://reg.eliroxbot.com" target="_blank" class="cta-button">🎁 MIỄN PHÍ ($500) - 100 Người Đăng Ký Sớm!</a>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">Đăng ký Bot Elirox qua link để nhận Dashboard PRO miễn phí</p>
             </div>
         </div>
     </section>
@@ -815,7 +960,7 @@
 
             <div class="preview-grid">
                 <div class="preview-image">
-                    <img src="images/dashboard-detailed.png" alt="DCA Scanner Dashboard">
+                    <img src="https://via.placeholder.com/600x400/667eea/ffffff?text=DCA+LONG+Scanner+Dashboard" alt="DCA Scanner Dashboard" style="border: 3px solid #667eea;">
                 </div>
                 <div class="preview-text">
                     <h3>Dashboard Chi Tiết</h3>
@@ -971,4 +1116,556 @@
 
                 <div class="benefit-item">
                     <div class="icon"><i class="fas fa-chart-line"></i></div>
-Page_DownPage_DownPage_DownPage_DownPage_Downh
+                    <h4>Tăng Win Rate</h4>
+                    <p><strong>15-20%</strong> - Từ ~65% → 78-85% nhờ phân tích khách quan, không cảm xúc</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Giảm Stress</h4>
+                    <p>Không còn <strong>lo lắng</strong> hay phân vân. Dashboard cho bạn câu trả lời rõ ràng</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-layer-group"></i></div>
+                    <h4>Trade Nhiều Assets</h4>
+                    <p>Từ 1-2 → <strong>5-10 assets</strong> cùng lúc, đa dạng hóa danh mục</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <h4>Tự Động Hóa</h4>
+                    <p>DCA params <strong>tự tính</strong>, alert tự động, chỉ việc execute</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Nhất Quán 100%</h4>
+                    <p>Quy trình <strong>không đổi</strong>, không bị ảnh hưởng tâm lý hay tin đồn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>⭐ Trader Nói Gì Về DCA Scanner?</h2>
+                <p>Những phản hồi thực tế từ cộng đồng Elirox</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Trước đây tôi mất cả buổi sáng để phân tích, giờ chỉ 10 phút là xong. Dashboard này giúp tôi trade thêm 5 assets nữa mà không stress. Win rate tăng từ 62% lên 81% sau 2 tháng!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Minh Tuấn</h5>
+                            <p>Full-time Trader, Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Cài đặt siêu dễ, 3 phút là xong. Interface đẹp, thông tin rõ ràng. Quan trọng là tính DCA tự động cho Elirox Bot, không phải ngồi tính toán nữa. Recommend 10/10!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">H</div>
+                        <div class="author-info">
+                            <h5>Hương Giang</h5>
+                            <p>Trader bán thời gian, TP.HCM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Tool này thay đổi game hoàn toàn. Tôi từ newbie giờ trade confident hơn nhiều. Score system rất trực quan, biết ngay khi nào entry. Support team rất nhiệt tình qua Telegram!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Q</div>
+                        <div class="author-info">
+                            <h5>Quang Hải</h5>
+                            <p>Trader mới 6 tháng, Đà Nẵng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>💰 Bảng Giá Đặc Biệt</h2>
+                <p>Chương trình ưu đãi có thời hạn - Nhanh tay đăng ký!</p>
+            </div>
+
+            <div class="pricing-cards">
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">🔥 EARLY BIRD</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">PRO Version</h3>
+                    <p style="color: #999; margin-bottom: 20px;">100 người đăng ký sớm nhất</p>
+                    <div class="price-original" style="font-size: 1.5rem;">$500</div>
+                    <div class="price-tag">MIỄN PHÍ</div>
+                    <p style="font-size: 0.9rem; color: #d32f2f; font-weight: 600; margin-top: 10px;">
+                        💎 Điều kiện: Đăng ký Bot Elirox qua link
+                    </p>
+                    
+                    <ul class="pricing-features">
+                        <li>✅ Dashboard đầy đủ tính năng PRO</li>
+                        <li>✅ Phân tích đa khung thời gian</li>
+                        <li>✅ Tính DCA tối ưu cho Elirox Bot</li>
+                        <li>✅ Alert system không giới hạn</li>
+                        <li>✅ Multi-asset scanning</li>
+                        <li>✅ Backtesting & Performance tracking</li>
+                        <li>✅ Priority support 24/7</li>
+                        <li>✅ Cập nhật miễn phí trọn đời</li>
+                        <li>✅ Cộng đồng VIP Telegram</li>
+                        <li>✅ Chiến lược trading độc quyền</li>
+                        <li>✅ Webinar & Training hàng tháng</li>
+                    </ul>
+                    
+                    <a href="https://reg.eliroxbot.com" target="_blank" class="btn-pricing" style="display: block; text-decoration: none; text-align: center; line-height: 1.5;">🚀 Đăng Ký Bot Elirox & Nhận FREE</a>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #d32f2f; font-weight: 600;">⏰ Chỉ còn 37/100 suất!</p>
+                    <p style="margin-top: 10px; font-size: 0.8rem; color: #666; line-height: 1.5;">
+                        * Đăng ký Bot Elirox qua link affiliate để nhận Dashboard PRO miễn phí<br>
+                        * Sau 100 người: Giá gốc $500/trọn đời
+                    </p>
+                </div>
+
+                <div class="pricing-card" style="opacity: 0.7;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">PRO Version</h3>
+                    <p style="color: #999; margin-bottom: 20px;">Sau 100 người đầu</p>
+                    <div class="price-tag" style="color: #1a1a2e;">$500</div>
+                    <p style="font-size: 0.9rem; color: #666;">Thanh toán 1 lần, sử dụng trọn đời</p>
+                    
+                    <ul class="pricing-features">
+                        <li>✅ Dashboard đầy đủ tính năng PRO</li>
+                        <li>✅ Phân tích đa khung thời gian</li>
+                        <li>✅ Tính DCA tối ưu cho Elirox Bot</li>
+                        <li>✅ Alert system không giới hạn</li>
+                        <li>✅ Multi-asset scanning</li>
+                        <li>✅ Backtesting & Performance tracking</li>
+                        <li>✅ Priority support 24/7</li>
+                        <li>✅ Cập nhật miễn phí trọn đời</li>
+                        <li>✅ Cộng đồng VIP Telegram</li>
+                        <li>✅ Chiến lược trading độc quyền</li>
+                        <li>✅ Webinar & Training hàng tháng</li>
+                    </ul>
+                    
+                    <button class="btn-pricing" style="opacity: 0.5; cursor: not-allowed;" disabled>Hết Suất Ưu Đãi</button>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #999;">Giá áp dụng sau khi hết 100 suất FREE</p>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-radius: 16px; border-left: 5px solid #ff9800;">
+                <h4 style="font-size: 1.3rem; color: #e65100; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-gift"></i> Cách Nhận Ưu Đãi FREE (Trị Giá $500)
+                </h4>
+                <ol style="color: #666; line-height: 2; margin-left: 20px;">
+                    <li><strong>Bước 1:</strong> Click vào link: <a href="https://reg.eliroxbot.com" target="_blank" style="color: #667eea; font-weight: 600;">https://reg.eliroxbot.com</a></li>
+                    <li><strong>Bước 2:</strong> Đăng ký sử dụng Bot Elirox giao dịch</li>
+                    <li><strong>Bước 3:</strong> Nhận email kích hoạt với code Pine Script Dashboard PRO</li>
+                    <li><strong>Bước 4:</strong> Copy code → Paste vào TradingView → Enjoy!</li>
+                </ol>
+                <p style="margin-top: 20px; color: #d32f2f; font-weight: 600; text-align: center;">
+                    ⚠️ Chỉ áp dụng cho 100 người đăng ký sớm nhất qua link affiliate!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>❓ Câu Hỏi Thường Gặp</h2>
+                <p>Giải đáp mọi thắc mắc của bạn</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tôi là newbie, có dùng được không?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Hoàn toàn được!</strong> Dashboard được thiết kế cho mọi level. Bạn chỉ cần:</p>
+                        <p>✓ Có tài khoản TradingView (Free cũng OK)<br>
+                        ✓ Biết copy/paste code<br>
+                        ✓ Hiểu cơ bản về DCA trading</p>
+                        <p>Chúng tôi có video hướng dẫn từng bước, support qua Telegram nếu bạn gặp khó khăn!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Dashboard có tự động trade giúp tôi không?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Không.</strong> Dashboard là công cụ <strong>phân tích và hỗ trợ quyết định</strong>, không tự động vào lệnh.</p>
+                        <p>Bạn vẫn cần:</p>
+                        <p>1. Xem phân tích từ Dashboard<br>
+                        2. Quyết định entry dựa trên Score<br>
+                        3. Setup Elirox Bot hoặc vào lệnh thủ công</p>
+                        <p>Điều này giúp bạn <strong>kiểm soát</strong> hoàn toàn, không bị bot "chạy lung tung".</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tôi phải trả phí TradingView không?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>KHÔNG BẮT BUỘC.</strong> Dashboard hoạt động tốt với TradingView Free.</p>
+                        <p>Tuy nhiên, nếu bạn muốn:</p>
+                        <p>✓ Alert không giới hạn → cần TradingView Pro ($12.95/tháng)<br>
+                        ✓ Xem nhiều chart cùng lúc → cần Pro+ trở lên</p>
+                        <p>Nhưng <strong>chỉ Dashboard thôi = FREE version là đủ!</strong></p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Code Pine Script có bị lộ không?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Code được BẢO MẬT.</strong> Khi bạn nhận code:</p>
+                        <p>✓ Chỉ bạn thấy được<br>
+                        ✓ Không thể copy từ TradingView<br>
+                        ✓ Không share được cho người khác</p>
+                        <p>Mỗi email đăng ký chỉ được 1 license duy nhất.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Dashboard có cập nhật không? Tôi có phải trả thêm tiền?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>CẬP NHẬT MIỄN PHÍ MÃI MÃI!</strong></p>
+                        <p>✓ Tính năng mới → Free<br>
+                        ✓ Fix bug → Free<br>
+                        ✓ Tối ưu hiệu suất → Free<br>
+                        ✓ Thêm assets mới → Free</p>
+                        <p>Bạn nhận FREE khi đăng ký Bot Elirox (100 người đầu), dùng trọn đời không mất phí!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Điều kiện để nhận Dashboard FREE ($500) là gì?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>RẤT ĐỔN GIẢN:</strong></p>
+                        <p>1. Đăng ký sử dụng <strong>Bot Elirox</strong> qua link: <a href="https://reg.eliroxbot.com" target="_blank">https://reg.eliroxbot.com</a><br>
+                        2. Là 1 trong <strong>100 người đăng ký sớm nhất</strong><br>
+                        3. Hoàn tất đăng ký → Nhận email với code Dashboard PRO</p>
+                        <p style="color: #d32f2f; font-weight: 600; margin-top: 15px;">⚠️ Sau 100 người: Dashboard sẽ có giá $500!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tôi trade crypto, forex, hay cả 2 được không?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Trade được TẤT CẢ!</strong> Dashboard hỗ trợ:</p>
+                        <p>✅ Crypto: BTC, ETH, BNB, SOL...<br>
+                        ✅ Forex: EURUSD, GBPUSD, XAUUSD...<br>
+                        ✅ Stocks: AAPL, TSLA, NVDA...<br>
+                        ✅ Indices: SPX, NDX, DXY...</p>
+                        <p>Miễn là có trên TradingView = Dashboard phân tích được!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Làm sao nhận được code sau khi đăng ký?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Quy trình siêu nhanh:</strong></p>
+                        <p>1. Điền form đăng ký → Submit<br>
+                        2. Check email (inbox/spam) → Nhận link kích hoạt<br>
+                        3. Click link → Nhận code Pine Script ngay<br>
+                        4. Copy code → Paste vào TradingView</p>
+                        <p><strong>Thời gian: 5-10 phút</strong> (thường là ngay lập tức!)</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tôi cần hỗ trợ thì liên hệ ai?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Support 24/7 qua Telegram:</strong></p>
+                        <p>📱 <a href="https://t.me/eliroxbot" target="_blank">t.me/eliroxbot</a></p>
+                        <p>Chúng tôi cam kết:</p>
+                        <p>✓ Phản hồi trong 1-2 giờ (thường là ngay)<br>
+                        ✓ Hỗ trợ setup 1-1 nếu cần<br>
+                        ✓ Giải đáp mọi thắc mắc về sử dụng<br>
+                        ✓ Hướng dẫn tối ưu chiến lược</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>🚀 Sẵn Sàng Nâng Cấp Trading Game?</h2>
+            <p>Tham gia cộng đồng 500+ trader đang sử dụng DCA Scanner</p>
+            
+            <div class="urgency-box">
+                <h3>⏰ Ưu Đãi Đặc Biệt!</h3>
+                <p><strong style="font-size: 1.3rem; color: #ffc107;">Dashboard PRO trị giá $500</strong></p>
+                <p style="font-size: 1.1rem; margin-top: 10px;">MIỄN PHÍ cho 100 người đăng ký Bot Elirox sớm nhất</p>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 15px;">Chỉ còn <span class="counter">37</span> suất • Sau đó: $500</p>
+            </div>
+            
+            <a href="https://reg.eliroxbot.com" target="_blank" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                🎁 Đăng Ký Bot Elirox & Nhận Dashboard PRO FREE
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 0.95rem; opacity: 0.9;">
+                ✓ Dashboard PRO $500 → FREE &nbsp;&nbsp;|&nbsp;&nbsp; ✓ Setup trong 3 phút &nbsp;&nbsp;|&nbsp;&nbsp; ✓ Hỗ trợ 24/7
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Liên Kết Nhanh</h4>
+                    <a href="#how-it-works">Cách Sử Dụng</a>
+                    <a href="#benefits">Lợi Ích</a>
+                    <a href="#testimonials">Đánh Giá</a>
+                    <a href="#pricing">Bảng Giá</a>
+                    <a href="#faq">Câu Hỏi Thường Gặp</a>
+                    <a href="https://reg.eliroxbot.com" target="_blank">Đăng Ký Bot Elirox</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Hỗ Trợ</h4>
+                    <p><i class="fab fa-telegram"></i> <strong>Telegram:</strong><br>
+                    <a href="https://t.me/eliroxbot" target="_blank">t.me/eliroxbot</a></p>
+                    <p><i class="fas fa-clock"></i> <strong>Giờ hỗ trợ:</strong><br>24/7 - Luôn sẵn sàng</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong><br>support@eliroxbot.com</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Tài Nguyên</h4>
+                    <a href="#">Hướng Dẫn Cài Đặt</a>
+                    <a href="#">Video Tutorial</a>
+                    <a href="#">Tài Liệu Trading</a>
+                    <a href="#">Blog & Tips</a>
+                    <a href="#">Cộng Đồng Trader</a>
+                    <a href="https://eliroxbot.com" target="_blank">Website Elirox</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DCA Scanner by Elirox Bot. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Điều Khoản Sử Dụng</a> | 
+                    <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Chính Sách Bảo Mật</a> | 
+                    <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Liên Hệ</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Popup Form -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>🎁 Đăng Ký Nhận Dashboard PRO FREE</h2>
+                <p>Trị giá $500 - Chỉ 100 người đầu tiên!</p>
+            </div>
+            <div class="modal-body">
+                <div style="background: #fff3e0; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #ff9800;">
+                    <p style="color: #e65100; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-info-circle"></i> Điều kiện nhận FREE
+                    </p>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.7;">
+                        Đăng ký sử dụng Bot Elirox qua link: <a href="https://reg.eliroxbot.com" target="_blank" style="color: #667eea; font-weight: 600;">https://reg.eliroxbot.com</a>
+                    </p>
+                </div>
+
+                <form id="registrationForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullname"><i class="fas fa-user"></i> Họ & Tên *</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Số Điện Thoại *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="0912345678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telegram"><i class="fab fa-telegram"></i> Telegram Username</label>
+                        <input type="text" id="telegram" name="telegram" placeholder="@username (không bắt buộc)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tradingview"><i class="fas fa-chart-line"></i> TradingView Username</label>
+                        <input type="text" id="tradingview" name="tradingview" placeholder="Username TradingView của bạn">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" required style="width: auto;">
+                            <span style="font-size: 0.9rem;">Tôi đồng ý <a href="#" style="color: #667eea;">điều khoản</a> và sẽ đăng ký Bot Elirox qua link</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        🚀 Xác Nhận & Nhận Code Dashboard PRO
+                    </button>
+
+                    <p class="modal-note">
+                        <i class="fas fa-lock"></i> Thông tin của bạn được bảo mật 100%<br>
+                        <i class="fas fa-gift"></i> Giá trị Dashboard PRO: $500 → FREE cho 100 người đầu<br>
+                        <i class="fas fa-clock"></i> Code sẽ được gửi về email sau khi xác nhận đăng ký Bot
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('registrationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('registrationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('registrationModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                fullname: document.getElementById('fullname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                telegram: document.getElementById('telegram').value,
+                tradingview: document.getElementById('tradingview').value
+            };
+
+            // Show success message
+            alert('✅ Cảm ơn bạn đã đăng ký!\n\n📋 Bước tiếp theo:\n\n1. Click OK để đi đến trang đăng ký Bot Elirox\n2. Hoàn tất đăng ký Bot Elirox tại: https://reg.eliroxbot.com\n3. Code Dashboard PRO ($500) sẽ được gửi về email: ' + formData.email + '\n\n⏰ Thời gian: 5-10 phút sau khi đăng ký Bot\n📱 Hỗ trợ: t.me/eliroxbot');
+            
+            // Redirect to Elirox Bot registration
+            window.open('https://reg.eliroxbot.com', '_blank');
+            
+            // Close modal
+            closeModal();
+            
+            // Reset form
+            document.getElementById('registrationForm').reset();
+            
+            return false;
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.indexOf('javascript:') === -1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Counter Animation
+        const counterElement = document.querySelector('.counter');
+        if (counterElement) {
+            let count = 37;
+            setInterval(() => {
+                count = Math.max(1, count - Math.floor(Math.random() * 2));
+                counterElement.textContent = count;
+            }, 30000); // Update every 30 seconds
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.step-card, .benefit-item, .testimonial-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
