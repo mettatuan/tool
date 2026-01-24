@@ -805,37 +805,33 @@
                 <div class="screenshot-card">
                     <h3>📊 Score Tổng Hợp 0-100</h3>
                     <p>Điểm số dựa trên nhiều chỉ báo kỹ thuật: MA, RSI, Volume, Trend. Trên 70 điểm = Setup tốt để entry.</p>
-                        <!-- Dùng -->
-                        <div class="screenshot-img">
-                            <img src="https://github.com/mettatuan/tool/blob/main/images/hinh%201.png?raw=true" alt="Score Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        </div>
+                    <div class="screenshot-img">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
                 </div>
 
                 <div class="screenshot-card">
                     <h3>🎯 Lọc Assets Nhanh</h3>
-                    <p>Quét hàng trăm coins, CFD, Forex, ... hiển thị màu: 🟢 Xanh (>70), 🟡 Vàng (50-70), 🔴 Đỏ (<50). Chọn coins xanh thôi!</p>
-                        <!-- Dùng -->
-                        <div class="screenshot-img">
-                            <img src="https://github.com/mettatuan/tool/blob/main/images/dashboard-preview.png?raw=true" alt="Score Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        </div>
+                    <p>Quét hàng trăm coins, hiển thị màu: 🟢 Xanh (>70), 🟡 Vàng (50-70), 🔴 Đỏ (<50). Chọn coins xanh thôi!</p>
+                    <div class="screenshot-img">
+                        <i class="fas fa-filter"></i>
+                    </div>
                 </div>
 
                 <div class="screenshot-card">
-                    <h3>⚙️ Tính DCA Tự Động, ATR </h3>
-                    <p>Gợi ý số chỉ báo RSI, ATR, Stoch, khoảng cách, take profit phù hợp cho Elirox Bot. Copy và setup trong 1 phút.</p>
-                        <!-- Dùng -->
-                        <div class="screenshot-img">
-                            <img src="https://github.com/mettatuan/tool/blob/main/images/hinh%203.png?raw=true" alt="Score Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        </div>
+                    <h3>⚙️ Tính DCA Tự Động</h3>
+                    <p>Gợi ý số lệnh, khoảng cách, take profit phù hợp cho Elirox Bot. Copy và setup trong 1 phút.</p>
+                    <div class="screenshot-img">
+                        <i class="fas fa-calculator"></i>
+                    </div>
                 </div>
 
                 <div class="screenshot-card">
                     <h3>📈 Phân Tích Đa Khung</h3>
                     <p>Xem xu hướng 4H, 1D, 1W cùng lúc. Biết ngay trend chính và thời điểm entry tối ưu.</p>
-                        <!-- Dùng -->
-                        <div class="screenshot-img">
-                            <img src="https://github.com/mettatuan/tool/blob/main/images/og-image.jpg?raw=true" alt="Score Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        </div>
+                    <div class="screenshot-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -917,7 +913,7 @@
 
     <script>
         const CONFIG = {
-            API_URL: 'https://script.google.com/macros/s/AKfycbyeni_JXWwCuz9WnqWDyOYAchjHk1Bcu52RrvvsvvfFcuDkEldWoJs58xgqP-P5u75F/exec',
+            API_URL: 'https://script.google.com/macros/s/AKfycbw_tQjIeK4Me9mVKVI5T1qtGBCKOMw486mtDakeP8fhrkbfk5ZUyH9asTAwSgxh12kt/exec',
             BOT_USERNAME: 'EliroxBot',
             SOURCE: 'Web Form - tool.eliroxbot.com'
         };
@@ -944,6 +940,8 @@
             showLoading();
 
             try {
+                console.log('📤 Sending data:', formData);
+                
                 const response = await fetch(CONFIG.API_URL, {
                     method: 'POST',
                     mode: 'cors',
@@ -953,18 +951,23 @@
                     body: JSON.stringify(formData)
                 });
 
+                console.log('📥 Response status:', response.status);
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
                 const result = await response.json();
+                console.log('📋 Response data:', result);
 
                 hideLoading();
 
-                if (result.success === true) {
+                // Check both 'success' and 'status' fields for compatibility
+                if (result.success === true || result.status === 'success') {
                     showSuccessModal(formData);
                     document.getElementById('registrationForm').reset();
                 } else {
+                    console.error('❌ Backend rejected:', result);
                     alert('❌ ' + (result.message || 'Có lỗi xảy ra. Vui lòng thử lại.'));
                 }
 
